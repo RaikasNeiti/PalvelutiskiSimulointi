@@ -6,7 +6,7 @@ import simu.model.OmaMoottori;
 public class Simulaattori {
 
     public static void main(String[] args) {
-
+        //testi
         Trace.setTraceLevel(Level.INFO);
         Moottori m = new OmaMoottori();
         m.setSimulointiaika(1000);
