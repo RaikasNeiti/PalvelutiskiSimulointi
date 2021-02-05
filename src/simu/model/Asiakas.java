@@ -46,7 +46,7 @@ public class Asiakas {
         Trace.out(Trace.Level.INFO,"Asiakas käytti "+ tiski + ":");
         sum += (poistumisaika-saapumisaika);
         double keskiarvo =  1.0 * sum/id;
-        System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
+        //System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
     }
 
 }
