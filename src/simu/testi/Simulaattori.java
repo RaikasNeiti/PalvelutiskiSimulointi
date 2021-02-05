@@ -1,4 +1,4 @@
-package testi;
+package simu.testi;
 import simu.framework.*;
 import simu.framework.Trace.Level;
 import simu.model.OmaMoottori;
