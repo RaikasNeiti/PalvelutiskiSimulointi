@@ -12,6 +12,7 @@ public class Asiakas {
     private int id;
     private static int i = 1;
     private static long sum = 0;
+    private String tiski;
 
     public Asiakas(){
         id = i++;
@@ -36,12 +37,15 @@ public class Asiakas {
         this.saapumisaika = saapumisaika;
     }
 
+    public void setTiski(String tiski){this.tiski = tiski;}
+
     public void raportti(){
-        Trace.out(Trace.Level.INFO, "Asiakas "+id+ " saapui:" +saapumisaika);
-        Trace.out(Trace.Level.INFO,"Asiakas "+id+ " poistui:" +poistumisaika);
-        Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi:" +(poistumisaika-saapumisaika));
+        //Trace.out(Trace.Level.INFO, "Asiakas "+id+ " saapui:" +saapumisaika);
+        //Trace.out(Trace.Level.INFO,"Asiakas "+id+ " poistui:" +poistumisaika);
+        //Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi:" +(poistumisaika-saapumisaika));
+        Trace.out(Trace.Level.INFO,"Asiakas käytti "+ tiski + ":");
         sum += (poistumisaika-saapumisaika);
-        double keskiarvo = sum/id;
+        double keskiarvo =  1.0 * sum/id;
         System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
     }
 
