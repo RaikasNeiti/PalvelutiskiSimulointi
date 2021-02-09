@@ -16,6 +16,7 @@ public class Palvelupiste {
     private ContinuousGenerator generator;
     private Tapahtumalista tapahtumalista;
     private TapahtumanTyyppi skeduloitavanTapahtumanTyyppi;
+    private double KokonaisPalveluAika = 0;
 
     //JonoStartegia strategia; //optio: asiakkaiden järjestys
 
@@ -43,7 +44,11 @@ public class Palvelupiste {
     public void aloitaPalvelu(){  //Aloitetaan uusi palvelu, asiakas on jonossa palvelun aikana
         varattu = true;
         double palveluaika = generator.sample();
+        KokonaisPalveluAika += palveluaika;
         tapahtumalista.lisaa(new Tapahtuma(skeduloitavanTapahtumanTyyppi,Kello.getInstance().getAika()+palveluaika));
+    }
+    public double getKokonaisPalveluAika(){
+        return KokonaisPalveluAika;
     }
 
 

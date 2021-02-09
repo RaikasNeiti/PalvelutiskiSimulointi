@@ -11,7 +11,8 @@ public class Asiakas {
     private double poistumisaika;
     private int id;
     private static int i = 1;
-    private static long sum = 0;
+    private static double sum = 0, sumA = 0, sumB = 0, sumC = 0;
+    static int AsiakasA = 0, AsiakasB = 0, AsiakasC= 0;
     private String tiski;
 
     public Asiakas(){
@@ -45,8 +46,37 @@ public class Asiakas {
         //Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi:" +(poistumisaika-saapumisaika));
         Trace.out(Trace.Level.INFO,"Asiakas käytti "+ tiski + ":");
         sum += (poistumisaika-saapumisaika);
-        double keskiarvo =  1.0 * sum/id;
-        //System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
+        switch(tiski){
+            case "TiskiA":
+                sumA += (poistumisaika-saapumisaika);
+                AsiakasA++;
+                break;
+            case "TiskiB":
+                sumB += (poistumisaika-saapumisaika);
+                AsiakasB++;
+                break;
+            case "TiskiC":
+                sumC += (poistumisaika-saapumisaika);
+                AsiakasC++;
+                break;
+        }
+
+    }
+    public static void loppuTulokset(){
+        double keskiarvo =  OmaMoottori.round( sum/i, 100.0);
+        System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
+        System.out.println("Tiskillä A: " + OmaMoottori.round( sumA /AsiakasA, 100.0));
+        System.out.println("Tiskillä B: " + OmaMoottori.round( sumB /AsiakasB, 100.0));
+        System.out.println("Tiskillä C: " + OmaMoottori.round( sumC /AsiakasC, 100.0));
+    }
+    public static int getAsiakasA(){
+        return AsiakasA;
+    }
+    public static int getAsiakasB(){
+        return AsiakasB;
+    }
+    public static int getAsiakasC(){
+        return AsiakasC;
     }
 
 }

@@ -11,16 +11,17 @@ public class OmaMoottori extends Moottori{
 
     private Saapumisprosessi saapumisprosessi;
     Vuoronumero vuoro;
+    private Kello kello;
 
 
     public OmaMoottori(){
 
         palvelupisteet = new Palvelupiste[3];
+        kello = Kello.getInstance();
 
-
-        palvelupisteet[0]=new Palvelupiste(new Normal(10,6), tapahtumalista, TapahtumanTyyppi.TISKI1);
-        palvelupisteet[1]=new Palvelupiste(new Normal(10,10), tapahtumalista, TapahtumanTyyppi.TISKI2);
-        palvelupisteet[2]=new Palvelupiste(new Normal(5,3), tapahtumalista, TapahtumanTyyppi.TISKI3);
+        palvelupisteet[0]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1);
+        palvelupisteet[1]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2);
+        palvelupisteet[2]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3);
 
         saapumisprosessi = new Saapumisprosessi(new Negexp(15,5), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
@@ -60,7 +61,16 @@ public class OmaMoottori extends Moottori{
     @Override
     protected void tulokset() {
         //System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
-        //System.out.println("Tulokset ... puuttuvat vielä");
+        System.out.println("Tulokset\n" +
+                "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[0].getKokonaisPalveluAika() / kello.getAika()) * 100, 100.0)   +"%\n" +
+                "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[1].getKokonaisPalveluAika() / kello.getAika())* 100, 100.0)  +"%\n" +
+                "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[2].getKokonaisPalveluAika() / kello.getAika())* 100, 100.0)  +"%\n" );
+        Asiakas.loppuTulokset();
+
+    }
+
+    public static double round(double luku, double tarkkuus){
+        return Math.round(luku*tarkkuus)/tarkkuus;
     }
 
 
