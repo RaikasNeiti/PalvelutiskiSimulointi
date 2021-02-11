@@ -18,11 +18,11 @@ public class Vuoronumero {
             asiakas.setTiski("TiskiA");
         }
         else if(rand < b){
-            palvelupisteet[1].lisaaJonoon(asiakas);
+            palvelupisteet[3].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiB");
         }
         else if(rand <= 100){
-            palvelupisteet[2].lisaaJonoon(asiakas);
+            palvelupisteet[6].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiC");
         }
     }

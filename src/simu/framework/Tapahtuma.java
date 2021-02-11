@@ -7,8 +7,14 @@ public class Tapahtuma implements Comparable<Tapahtuma> {
 
     private TapahtumanTyyppi tyyppi;
     private double aika;
+    int palvelija;
 
-    public Tapahtuma(TapahtumanTyyppi tyyppi, double aika){
+    public Tapahtuma(TapahtumanTyyppi tyyppi, double aika, int palvelija){
+        this.tyyppi = tyyppi;
+        this.aika = aika;
+        this.palvelija = palvelija;
+    }
+    public Tapahtuma(TapahtumanTyyppi tyyppi, double aika) {
         this.tyyppi = tyyppi;
         this.aika = aika;
     }
@@ -25,6 +31,7 @@ public class Tapahtuma implements Comparable<Tapahtuma> {
     public double getAika() {
         return aika;
     }
+    public int getPalvelija(){return palvelija;}
 
     @Override
     public int compareTo(Tapahtuma arg) {
