@@ -2,6 +2,7 @@ package simu.testi;
 import simu.framework.*;
 import simu.framework.Trace.Level;
 import simu.model.OmaMoottori;
+import ui.MainUI;
 
 public class Simulaattori {
 
@@ -11,6 +12,7 @@ public class Simulaattori {
         Moottori m = new OmaMoottori();
         m.setSimulointiaika(1500);
         m.aja();
+        MainUI.main(args);
 
 
 
