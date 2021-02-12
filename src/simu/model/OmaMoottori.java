@@ -47,6 +47,7 @@ public class OmaMoottori extends Moottori{
 
     @Override
     protected void alustukset() {
+        auki = true;
         saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
     }
 
