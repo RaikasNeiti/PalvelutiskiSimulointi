@@ -15,15 +15,18 @@ public class OmaMoottori extends Moottori{
     private Saapumisprosessi saapumisprosessi;
     Vuoronumero vuoro;
     private Kello kello;
+    LinkedList<Asiakas> jonoA;
+    LinkedList<Asiakas> jonoB;
+    LinkedList<Asiakas> jonoC;
 
 
     public OmaMoottori(){
 
         palvelupisteet = new Palvelupiste[9];
         kello = Kello.getInstance();
-        LinkedList<Asiakas> jonoA = new LinkedList<>();
-        LinkedList<Asiakas> jonoB = new LinkedList<>();
-        LinkedList<Asiakas> jonoC = new LinkedList<>();
+        jonoA = new LinkedList<>();
+        jonoB = new LinkedList<>();
+        jonoC = new LinkedList<>();
 
 
         palvelupisteet[0]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
@@ -36,7 +39,7 @@ public class OmaMoottori extends Moottori{
         palvelupisteet[7]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
         palvelupisteet[8]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC,false);
 
-        saapumisprosessi = new Saapumisprosessi(new Negexp(10,2), tapahtumalista, TapahtumanTyyppi.ARR1);
+        saapumisprosessi = new Saapumisprosessi(new Negexp(5,2), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
     }
 
@@ -75,7 +78,7 @@ public class OmaMoottori extends Moottori{
                 "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[6].getKokonaisPalveluAika() / kello.getAika())* 100, 100.0)  +"%\n" );
         Asiakas.loppuTulokset();
         for (Palvelupiste p: palvelupisteet){
-            System.out.println("Käyttössäoloprosentti " + "palvleupiste " + p.getId() + " " +round(p.kaytossaoloProsentti(), 100));
+            System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " +round(p.kaytossaoloProsentti(), 100));
 
         }
         System.out.println("Tiskien käyttössäoloprosenttit:");
@@ -107,6 +110,13 @@ public class OmaMoottori extends Moottori{
             }
         }
 
+    }
+
+
+    public void jononPituudet(){
+        System.out.println("Jonon A pituus: " + jonoA.size());
+        System.out.println("Jonon B pituus: " + jonoB.size());
+        System.out.println("Jonon C pituus: " + jonoC.size());
     }
 
     public static double round(double luku, double tarkkuus){

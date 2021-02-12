@@ -52,6 +52,9 @@ public abstract class Moottori {
                 p.aloitaPalvelu();
             }
         }
+        jononPituudet();
+
+
     }
 
 
@@ -71,5 +74,7 @@ public abstract class Moottori {
     protected abstract void suoritaTapahtuma(Tapahtuma t);  // Määritellään simu.model-pakkauksessa Moottorin aliluokassa
 
     protected abstract void tulokset(); // Määritellään simu.model-pakkauksessa Moottorin aliluokassa
+
+    protected abstract void jononPituudet();
 
 }
