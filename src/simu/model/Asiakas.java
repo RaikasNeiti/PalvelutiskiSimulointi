@@ -42,7 +42,7 @@ public class Asiakas {
 
     public void raportti(){
         //Trace.out(Trace.Level.INFO, "Asiakas "+id+ " saapui:" +saapumisaika);
-        //Trace.out(Trace.Level.INFO,"Asiakas "+id+ " poistui:" +poistumisaika);
+        Trace.out(Trace.Level.INFO,"Asiakas "+id+ " poistui:" +poistumisaika);
         //Trace.out(Trace.Level.INFO,"Asiakas "+id+ " viipyi:" +(poistumisaika-saapumisaika));
         Trace.out(Trace.Level.INFO,"Asiakas käytti "+ tiski + ":");
         sum += (poistumisaika-saapumisaika);

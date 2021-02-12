@@ -10,7 +10,7 @@ public class Tapahtumalista {
     }
 
     public Tapahtuma poista(){
-        Trace.out(Trace.Level.INFO,"Tapahtumalistasta poisto " + lista.peek());
+        //Trace.out(Trace.Level.INFO,"Tapahtumalistasta poisto " + lista.peek());
         return lista.remove();
     }
 
@@ -20,6 +20,10 @@ public class Tapahtumalista {
 
     public double getSeuraavanAika(){
         return lista.peek().getAika();
+    }
+
+    public boolean onTyhjä(){
+        return lista.size() <= 0;
     }
 
 

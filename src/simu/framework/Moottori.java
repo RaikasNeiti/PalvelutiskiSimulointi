@@ -34,7 +34,16 @@ public abstract class Moottori {
             kello.setAika(nykyaika());
             suoritaBTapahtumat();
             yritaCTapahtumat();
+            jononPituudet();
 
+        }
+        System.out.println("Vuoronumeroautomaatti suljettu");
+        suljeVuoronumero();
+        while(!tapahtumalista.onTyhjä()){
+            kello.setAika(nykyaika());
+            suoritaBTapahtumat();
+            yritaCTapahtumat();
+            jononPituudet();
         }
         tulokset();
 
@@ -52,7 +61,7 @@ public abstract class Moottori {
                 p.aloitaPalvelu();
             }
         }
-        jononPituudet();
+
 
 
     }
@@ -68,6 +77,7 @@ public abstract class Moottori {
     }
 
 
+    protected abstract  void suljeVuoronumero();
 
     protected abstract void alustukset(); // Määritellään simu.model-pakkauksessa Moottorin aliluokassa
 

@@ -13,11 +13,12 @@ import java.util.LinkedList;
 public class OmaMoottori extends Moottori{
 
     private Saapumisprosessi saapumisprosessi;
-    Vuoronumero vuoro;
+    private Vuoronumero vuoro;
     private Kello kello;
-    LinkedList<Asiakas> jonoA;
-    LinkedList<Asiakas> jonoB;
-    LinkedList<Asiakas> jonoC;
+    private LinkedList<Asiakas> jonoA;
+    private LinkedList<Asiakas> jonoB;
+    private LinkedList<Asiakas> jonoC;
+    private boolean auki = true;
 
 
     public OmaMoottori(){
@@ -33,7 +34,7 @@ public class OmaMoottori extends Moottori{
         palvelupisteet[1]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
         palvelupisteet[2]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA,false);
         palvelupisteet[3]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
-        palvelupisteet[4]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
+        palvelupisteet[4]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
         palvelupisteet[5]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
         palvelupisteet[6]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC,true);
         palvelupisteet[7]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
@@ -55,9 +56,12 @@ public class OmaMoottori extends Moottori{
         Asiakas a;
         switch (t.getTyyppi()){
 
-            case ARR1: vuoro.uusiAskiakas();
-                saapumisprosessi.generoiSeuraava();
-                break;
+            case ARR1:
+                if(auki) {
+                    vuoro.uusiAskiakas();
+                    saapumisprosessi.generoiSeuraava();
+                    break;
+                }
             case TISKI1:
             case TISKI2:
             case TISKI3:
@@ -111,7 +115,9 @@ public class OmaMoottori extends Moottori{
         }
 
     }
-
+    public void suljeVuoronumero(){
+        auki = false;
+    }
 
     public void jononPituudet(){
         System.out.println("Jonon A pituus: " + jonoA.size());
@@ -122,6 +128,8 @@ public class OmaMoottori extends Moottori{
     public static double round(double luku, double tarkkuus){
         return Math.round(luku*tarkkuus)/tarkkuus;
     }
+
+
 
 
 }
