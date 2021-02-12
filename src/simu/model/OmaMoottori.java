@@ -79,9 +79,9 @@ public class OmaMoottori extends Moottori{
     protected void tulokset() {
         //System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
         System.out.println("Tulokset\n" +
-                "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[0].getKokonaisPalveluAika() / kello.getAika()) * 100, 100.0)   +"%\n" +
-                "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[3].getKokonaisPalveluAika() / kello.getAika())* 100, 100.0)  +"%\n" +
-                "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta. Käyttössäoloprosentti "+ round((palvelupisteet[6].getKokonaisPalveluAika() / kello.getAika())* 100, 100.0)  +"%\n" );
+                "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta.\n" +
+                "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta.\n" +
+                "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta.\n" );
         Asiakas.loppuTulokset();
         for (Palvelupiste p: palvelupisteet){
             System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " +round(p.kaytossaoloProsentti(), 100));

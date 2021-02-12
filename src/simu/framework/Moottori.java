@@ -39,12 +39,12 @@ public abstract class Moottori {
         }
         System.out.println("Vuoronumeroautomaatti suljettu");
         suljeVuoronumero();
-        /*while(!tapahtumalista.onTyhjä()){
+        while(!tapahtumalista.onTyhjä()){
             kello.setAika(nykyaika());
             suoritaBTapahtumat();
             yritaCTapahtumat();
             jononPituudet();
-        }*/
+        }
 
         tulokset();
 
