@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import javafx.util.converter.DoubleStringConverter;
-import simu.framework.Moottori;
 import simu.framework.Trace;
 import simu.model.OmaMoottori;
 
