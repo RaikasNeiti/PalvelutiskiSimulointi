@@ -23,8 +23,9 @@ public class Tapahtumalista {
     }
 
     public boolean onTyhjä(){
-        return lista.size() <= 0;
+        return lista.size() == 0;
     }
+
 
 
 }

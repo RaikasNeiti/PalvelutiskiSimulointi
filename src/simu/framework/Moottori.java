@@ -52,6 +52,9 @@ public abstract class Moottori {
     private void suoritaBTapahtumat(){
         while (tapahtumalista.getSeuraavanAika() == kello.getAika()){
             suoritaTapahtuma(tapahtumalista.poista());
+            if(tapahtumalista.onTyhjä()){
+                break;
+            }
         }
     }
 
