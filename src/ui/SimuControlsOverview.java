@@ -5,13 +5,16 @@ import javafx.scene.control.TextField;
 import simu.model.OmaMoottori;
 
 public class SimuControlsOverview {
+
     MainUI main;
     private double time;
 
     @FXML
     private TextField field;
 
-    public SimuControlsOverview(){}
+    public SimuControlsOverview(){
+
+    }
 
     public void setMainUI(MainUI main){
         this.main = main;
