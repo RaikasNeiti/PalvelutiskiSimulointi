@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.SimuControlsOverview">
+   <children>
+      <ButtonBar layoutX="403.0" layoutY="346.0" prefHeight="40.0" prefWidth="183.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#handleStartButton" text="Start" />
+            <Button mnemonicParsing="false" text="Exit" />
+        </buttons>
+      </ButtonBar>
+      <TextField fx:id="field" layoutX="511.0" layoutY="321.0" prefHeight="25.0" prefWidth="75.0" AnchorPane.bottomAnchor="54.0" AnchorPane.rightAnchor="14.0" />
+      <Label layoutX="467.0" layoutY="325.0" text="Time" AnchorPane.bottomAnchor="58.0" AnchorPane.rightAnchor="110.0" />
+   </children>
+</AnchorPane>

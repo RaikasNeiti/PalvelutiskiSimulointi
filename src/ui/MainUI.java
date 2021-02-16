@@ -1,43 +1,88 @@
 package ui;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-
-import javafx.util.converter.DoubleStringConverter;
 import simu.framework.Trace;
 import simu.model.OmaMoottori;
 
 
+import java.io.IOException;
+
 
 public class MainUI extends Application {
-    private double value;
-    OmaMoottori  m;
+    OmaMoottori m;
+    private BorderPane rootLayout;
+    private Stage primaryStage;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         Trace.setTraceLevel(Trace.Level.INFO);
         m = new OmaMoottori();
-        initUI(stage);
+
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("Testi");
+
+        //initUI(stage);
+        initRootLayout();
+
+        showSimuControls();
+
 
     }
 
+
+
+    public void initRootLayout(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainUI.class.getResource("fxml/RootLayout.fxml"));
+            rootLayout = (BorderPane) loader.load();
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showSimuControls() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainUI.class.getResource("fxml/SimuControlsOverview.fxml"));
+            AnchorPane ControlsOverview = (AnchorPane) loader.load();
+            SimuControlsOverview simuControlsOverview = loader.getController();
+
+            simuControlsOverview.setMainUI(this);
+
+            rootLayout.setCenter(ControlsOverview);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+    }
+    public void SimuStart(double time){
+
+
+        m.setSimulointiaika(time);
+        m.aja();
+
+    }
+
+    /*
     private void initUI(Stage stage){
         BorderPane roota = new BorderPane();
         HBox root = new HBox(5);
@@ -83,5 +128,12 @@ public class MainUI extends Application {
             }
         });
 
+    }
+
+     */
+
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
