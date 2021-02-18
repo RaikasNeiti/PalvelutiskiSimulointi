@@ -196,5 +196,9 @@ public class OmaMoottori extends Moottori {
         this.txtC_ch = txtC_ch;
     }
 
+    public void setTiskiAktiivinen(int i, boolean aktiivinen){
+        palvelupisteet[i].vaihdaAktiivinen(aktiivinen);
+    }
+
 
 }

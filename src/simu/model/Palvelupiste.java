@@ -82,15 +82,8 @@ public class Palvelupiste {
         return jono.size() != 0;
     }
 
-    public void vaihdaAktiivinen(){
-        if(aktiivinen){
-            aktiivinen = false;
-            wentInactive = Kello.getInstance().getAika();
-        }
-        else{
-            aktiivinen = true;
-            inactive += Kello.getInstance().getAika() - wentInactive;
-        }
+    public void vaihdaAktiivinen(boolean aktiivinen){
+        this.aktiivinen = aktiivinen;
     }
 
     public double kaytossaoloProsentti(){
