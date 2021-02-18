@@ -1,5 +1,6 @@
 package ui;
 
+import com.sun.javafx.iio.ios.IosDescriptor;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import simu.framework.Trace;
 import simu.model.OmaMoottori;
@@ -65,7 +67,7 @@ public class MainUI extends Application {
             AnchorPane ControlsOverview = (AnchorPane) loader.load();
             SimuControlsOverview simuControlsOverview = loader.getController();
 
-            simuControlsOverview.setMainUI(this);
+            simuControlsOverview.setMainUI(this, m);
 
             rootLayout.setCenter(ControlsOverview);
 
@@ -76,11 +78,28 @@ public class MainUI extends Application {
 
     }
     public void SimuStart(double time){
+        try {
 
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainUI.class.getResource("fxml/SimuAnimationOverview.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            SimuAnimation sa = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Simu Animation");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
 
-        m.setSimulointiaika(time);
-        Saie saie = new Saie(m);
-        saie.start();
+            dialogStage.show();
+
+            m.setSimulointiaika(time);
+            Saie saie = new Saie(m);
+            saie.start();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 

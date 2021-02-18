@@ -33,15 +33,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="2" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="1" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <CheckBox fx:id="tiskiB_b" mnemonicParsing="false" GridPane.rowIndex="2" />
+            <CheckBox fx:id="tiskiB_a" mnemonicParsing="false" GridPane.rowIndex="1" />
+            <CheckBox fx:id="tiskiB_c" mnemonicParsing="false" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiB_ap" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiB_ah" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiB_bp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiB_bh" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiB_cp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiB_ch" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Palveluaika" GridPane.columnIndex="1" />
             <Label text="Hajonta" GridPane.columnIndex="2" />
          </children>
@@ -62,15 +62,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="2" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="1" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <CheckBox fx:id="tiskiC_b" mnemonicParsing="false" GridPane.rowIndex="2" />
+            <CheckBox fx:id="tiskiC_a" mnemonicParsing="false" GridPane.rowIndex="1" />
+            <CheckBox fx:id="tiskiC_c" mnemonicParsing="false" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiC_ap" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiC_ah" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiC_bp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiC_bh" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiC_cp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiC_ch" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Palveluaika" GridPane.columnIndex="1" />
             <Label text="Hajonta" GridPane.columnIndex="2" />
          </children>
@@ -88,15 +88,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="2" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="1" />
-            <CheckBox mnemonicParsing="false" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <CheckBox fx:id="tiskiA_b" mnemonicParsing="false" GridPane.rowIndex="2" />
+            <CheckBox fx:id="tiskiA_a" mnemonicParsing="false" onAction="#handleTiskiA_a" GridPane.rowIndex="1" />
+            <CheckBox fx:id="tiskiA_c" mnemonicParsing="false" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiA_ap" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiA_ah" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="tiskiA_bp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiA_bh" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tiskiA_cp" text="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tiskiA_ch" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Palveluaika" GridPane.columnIndex="1" />
             <Label text="Hajonta" GridPane.columnIndex="2" />
          </children>
