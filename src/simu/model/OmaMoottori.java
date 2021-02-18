@@ -19,7 +19,15 @@ public class OmaMoottori extends Moottori {
     private LinkedList<Asiakas> jonoB;
     private LinkedList<Asiakas> jonoC;
     private boolean auki = true;
-
+    private boolean cbA_a;
+    private double txtA_ap;
+    private double txtA_ah;
+    private boolean cbA_b;
+    private double txtA_bp;
+    private double txtA_bh;
+    private boolean cbA_c;
+    private double txtA_cp;
+    private double txtA_ch;
 
     public OmaMoottori() {
 
@@ -30,9 +38,9 @@ public class OmaMoottori extends Moottori {
         jonoC = new LinkedList<>();
 
 
-        palvelupisteet[0] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
-        palvelupisteet[1] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
-        palvelupisteet[2] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, false);
+        palvelupisteet[0] = new Palvelupiste(new Normal(txtA_ap, txtA_ah), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_a);
+        palvelupisteet[1] = new Palvelupiste(new Normal(txtA_bp, txtA_bh), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_b);
+        palvelupisteet[2] = new Palvelupiste(new Normal(txtA_cp, txtA_ch), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_c);
         palvelupisteet[3] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
         palvelupisteet[4] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
         palvelupisteet[5] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
@@ -128,6 +136,18 @@ public class OmaMoottori extends Moottori {
 
     public static double round(double luku, double tarkkuus) {
         return Math.round(luku * tarkkuus) / tarkkuus;
+    }
+
+    public void setTiskiA(boolean cbA_a, double txtA_ap, double txtA_ah, boolean cbA_b, double txtA_bp, double txtA_bh, boolean cbA_c, double txtA_cp ,double txtA_ch){
+        this.cbA_a = cbA_a;
+        this.txtA_ap = txtA_ap;
+        this.txtA_ah = txtA_ah;
+        this.cbA_b = cbA_b;
+        this.txtA_bp = txtA_bp;
+        this.txtA_bh = txtA_bh;
+        this.cbA_c = cbA_c;
+        this.txtA_cp = txtA_cp;
+        this.txtA_ch = txtA_ch;
     }
 
 
