@@ -13,6 +13,7 @@ public class SimuControlsOverview {
     MainUI main;
     OmaMoottori m;
     private double time;
+    private boolean[] checkbox = new boolean[9];
 
     @FXML
     private TextField field;
@@ -131,6 +132,19 @@ public class SimuControlsOverview {
 
         m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
     }
+    public boolean[] getCheckbox(){
+        checkbox[0] = tiskiA_a.isSelected();
+        checkbox[1] = tiskiA_b.isSelected();
+        checkbox[2] = tiskiA_c.isSelected();
+        checkbox[3] = tiskiB_a.isSelected();
+        checkbox[4] = tiskiB_b.isSelected();
+        checkbox[5] = tiskiB_c.isSelected();
+        checkbox[6] = tiskiC_a.isSelected();
+        checkbox[7] = tiskiC_b.isSelected();
+        checkbox[8] = tiskiC_c.isSelected();
+
+        return checkbox;
+    }
 
 
     @FXML
@@ -139,6 +153,7 @@ public class SimuControlsOverview {
             getTiskiA();
             getTiskiB();
             getTiskiC();
+
             System.out.println(tiskiA_a.isSelected());
             time = Double.parseDouble(field.getText());
 

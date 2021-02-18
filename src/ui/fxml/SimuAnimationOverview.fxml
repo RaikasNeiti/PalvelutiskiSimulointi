@@ -74,9 +74,9 @@
                         <Label text="Tiski A" GridPane.rowIndex="1" />
                         <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
                            <buttons>
-                              <CheckBox mnemonicParsing="false" text="1" />
-                              <CheckBox mnemonicParsing="false" text="2" />
-                              <CheckBox mnemonicParsing="false" text="3" />
+                              <CheckBox fx:id="checkbox_A_a" mnemonicParsing="false" onAction="#handleCheckboxA_a" text="1" />
+                              <CheckBox fx:id="checkbox_A_b" mnemonicParsing="false" onAction="#handleCheckboxA_b" text="2" />
+                              <CheckBox fx:id="checkbox_A_c" mnemonicParsing="false" onAction="#handleCheckboxA_c" text="3" />
                            </buttons>
                         </ButtonBar>
                      </children>
@@ -94,9 +94,9 @@
                         <Label text="Tiski B" GridPane.rowIndex="1" />
                         <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
                            <buttons>
-                              <CheckBox mnemonicParsing="false" text="1" />
-                              <CheckBox mnemonicParsing="false" text="2" />
-                              <CheckBox mnemonicParsing="false" text="3" />
+                              <CheckBox fx:id="checkbox_B_a" mnemonicParsing="false" onAction="#handleCheckboxB_a" text="1" />
+                              <CheckBox fx:id="checkbox_B_b" mnemonicParsing="false" onAction="#handleCheckboxB_b" text="2" />
+                              <CheckBox fx:id="checkbox_B_c" mnemonicParsing="false" onAction="#handleCheckboxB_c" text="3" />
                            </buttons>
                         </ButtonBar>
                      </children>
@@ -114,9 +114,9 @@
                         <Label text="Tiski C" GridPane.rowIndex="1" />
                         <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
                            <buttons>
-                              <CheckBox mnemonicParsing="false" text="1" />
-                              <CheckBox mnemonicParsing="false" text="2" />
-                              <CheckBox mnemonicParsing="false" text="3" />
+                              <CheckBox fx:id="checkbox_C_a" mnemonicParsing="false" onAction="#handleCheckboxC_a" text="1" />
+                              <CheckBox fx:id="checkbox_C_b" mnemonicParsing="false" onAction="#handleCheckboxC_b" text="2" />
+                              <CheckBox fx:id="checkbox_C_c" mnemonicParsing="false" onAction="#handleCheckboxC_c" text="3" />
                            </buttons>
                         </ButtonBar>
                      </children>

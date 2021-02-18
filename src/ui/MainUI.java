@@ -20,6 +20,7 @@ import java.io.IOException;
 
 public class MainUI extends Application {
     OmaMoottori m;
+    SimuControlsOverview simuControlsOverview;
     private BorderPane rootLayout;
     private Stage primaryStage;
 
@@ -65,7 +66,7 @@ public class MainUI extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainUI.class.getResource("fxml/SimuControlsOverview.fxml"));
             AnchorPane ControlsOverview = (AnchorPane) loader.load();
-            SimuControlsOverview simuControlsOverview = loader.getController();
+            simuControlsOverview = loader.getController();
 
             simuControlsOverview.setMainUI(this, m);
 
@@ -84,6 +85,9 @@ public class MainUI extends Application {
             loader.setLocation(MainUI.class.getResource("fxml/SimuAnimationOverview.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             SimuAnimation sa = loader.getController();
+
+            sa.setMainUI(this,m);
+            sa.setCheckbox(simuControlsOverview.getCheckbox());
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Simu Animation");
             dialogStage.initModality(Modality.WINDOW_MODAL);
