@@ -10,7 +10,7 @@ import simu.framework.Tapahtuma;
 import java.util.LinkedList;
 
 
-public class OmaMoottori extends Moottori{
+public class OmaMoottori extends Moottori {
 
     private Saapumisprosessi saapumisprosessi;
     private Vuoronumero vuoro;
@@ -21,7 +21,7 @@ public class OmaMoottori extends Moottori{
     private boolean auki = true;
 
 
-    public OmaMoottori(){
+    public OmaMoottori() {
 
         palvelupisteet = new Palvelupiste[9];
         kello = Kello.getInstance();
@@ -30,17 +30,17 @@ public class OmaMoottori extends Moottori{
         jonoC = new LinkedList<>();
 
 
-        palvelupisteet[0]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
-        palvelupisteet[1]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
-        palvelupisteet[2]=new Palvelupiste(new Normal(20,6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA,false);
-        palvelupisteet[3]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
-        palvelupisteet[4]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
-        palvelupisteet[5]=new Palvelupiste(new Normal(25,10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
-        palvelupisteet[6]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC,true);
-        palvelupisteet[7]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
-        palvelupisteet[8]=new Palvelupiste(new Normal(15,3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC,false);
+        palvelupisteet[0] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
+        palvelupisteet[1] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, true);
+        palvelupisteet[2] = new Palvelupiste(new Normal(20, 6), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, false);
+        palvelupisteet[3] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
+        palvelupisteet[4] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
+        palvelupisteet[5] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
+        palvelupisteet[6] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
+        palvelupisteet[7] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
+        palvelupisteet[8] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, false);
 
-        saapumisprosessi = new Saapumisprosessi(new Negexp(5,2), tapahtumalista, TapahtumanTyyppi.ARR1);
+        saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
     }
 
@@ -53,13 +53,13 @@ public class OmaMoottori extends Moottori{
     }
 
     @Override
-    protected void suoritaTapahtuma(Tapahtuma t){  // B-vaiheen tapahtumat
+    protected void suoritaTapahtuma(Tapahtuma t) {  // B-vaiheen tapahtumat
 
         Asiakas a;
-        switch (t.getTyyppi()){
+        switch (t.getTyyppi()) {
 
             case ARR1:
-                if(auki) {
+                if (auki) {
                     vuoro.uusiAskiakas();
                     saapumisprosessi.generoiSeuraava();
                     break;
@@ -81,57 +81,54 @@ public class OmaMoottori extends Moottori{
         System.out.println("Tulokset\n" +
                 "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta.\n" +
                 "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta.\n" +
-                "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta.\n" );
+                "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta.\n");
         Asiakas.loppuTulokset();
-        for (Palvelupiste p: palvelupisteet){
-            System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " +round(p.kaytossaoloProsentti(), 100));
+        for (Palvelupiste p : palvelupisteet) {
+            System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " + round(p.kaytossaoloProsentti(), 100));
 
         }
         System.out.println("Tiskien käyttössäoloprosenttit:");
         int i;
         double palveluAika = 0, aktiivinen = 0;
         double TPalveluAika = 0, TAktiivinen = 0;
-        for(i = 0 ;i < 9; i++){
+        for (i = 0; i < 9; i++) {
             palveluAika += palvelupisteet[i].getKokonaisPalveluAika();
             aktiivinen += palvelupisteet[i].getInactive();
-            if(i==2){
-                System.out.println("TiskiA: " + round(100 * palveluAika/aktiivinen, 100));
+            if (i == 2) {
+                System.out.println("TiskiA: " + round(100 * palveluAika / aktiivinen, 100));
                 TPalveluAika += palveluAika;
                 palveluAika = 0;
                 TAktiivinen += aktiivinen;
                 aktiivinen = 0;
-            }
-            else if(i==5){
-                System.out.println("TiskiB: " + round(100 * palveluAika/aktiivinen, 100));
+            } else if (i == 5) {
+                System.out.println("TiskiB: " + round(100 * palveluAika / aktiivinen, 100));
                 TPalveluAika += palveluAika;
                 palveluAika = 0;
                 TAktiivinen += aktiivinen;
                 aktiivinen = 0;
-            }
-            else if(i==8){
-                System.out.println("TiskiC: " + round(100 * palveluAika/aktiivinen, 100));
+            } else if (i == 8) {
+                System.out.println("TiskiC: " + round(100 * palveluAika / aktiivinen, 100));
                 TPalveluAika += palveluAika;
                 TAktiivinen += aktiivinen;
-                System.out.println("Kaikki tiskit: " + round(100 * TPalveluAika/TAktiivinen, 100));
+                System.out.println("Kaikki tiskit: " + round(100 * TPalveluAika / TAktiivinen, 100));
             }
         }
 
     }
-    public void suljeVuoronumero(){
+
+    public void suljeVuoronumero() {
         auki = false;
     }
 
-    public void jononPituudet(){
+    public void jononPituudet() {
         System.out.println("Jonon A pituus: " + jonoA.size());
         System.out.println("Jonon B pituus: " + jonoB.size());
         System.out.println("Jonon C pituus: " + jonoC.size());
     }
 
-    public static double round(double luku, double tarkkuus){
-        return Math.round(luku*tarkkuus)/tarkkuus;
+    public static double round(double luku, double tarkkuus) {
+        return Math.round(luku * tarkkuus) / tarkkuus;
     }
-
-
 
 
 }

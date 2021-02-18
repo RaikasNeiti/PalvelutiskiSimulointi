@@ -35,4 +35,14 @@ public class SimuControlsOverview {
 
     }
 
+
+    @FXML
+    private void handleStopButton(){
+        try{
+            System.exit(0);
+        } catch (Exception e){
+            System.out.println("Virhe");
+        }
+    }
+
 }

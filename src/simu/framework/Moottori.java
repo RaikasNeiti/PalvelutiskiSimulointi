@@ -2,7 +2,7 @@ package simu.framework;
 
 import simu.model.Palvelupiste;
 
-public abstract class Moottori {
+public abstract class Moottori{
 
     private double simulointiaika = 0;
 
@@ -35,7 +35,11 @@ public abstract class Moottori {
             suoritaBTapahtumat();
             yritaCTapahtumat();
             jononPituudet();
-
+            try{
+                Thread.sleep(500);
+            } catch (InterruptedException e){
+                System.out.println("kuraa");
+            }
         }
         System.out.println("Vuoronumeroautomaatti suljettu");
         suljeVuoronumero();

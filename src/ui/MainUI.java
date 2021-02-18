@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import simu.framework.Trace;
 import simu.model.OmaMoottori;
+import simu.model.Saie;
 
 
 import java.io.IOException;
@@ -78,7 +79,8 @@ public class MainUI extends Application {
 
 
         m.setSimulointiaika(time);
-        m.aja();
+        Saie saie = new Saie(m);
+        saie.start();
 
     }
 
