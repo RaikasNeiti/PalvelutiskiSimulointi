@@ -89,7 +89,7 @@
          </rowConstraints>
          <children>
             <CheckBox fx:id="tiskiA_b" mnemonicParsing="false" GridPane.rowIndex="2" />
-            <CheckBox fx:id="tiskiA_a" mnemonicParsing="false" onAction="#handleTiskiA_a" GridPane.rowIndex="1" />
+            <CheckBox fx:id="tiskiA_a" mnemonicParsing="false" GridPane.rowIndex="1" />
             <CheckBox fx:id="tiskiA_c" mnemonicParsing="false" GridPane.rowIndex="3" />
             <TextField fx:id="tiskiA_ap" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tiskiA_ah" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />

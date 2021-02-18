@@ -35,11 +35,7 @@ public abstract class Moottori{
             suoritaBTapahtumat();
             yritaCTapahtumat();
             jononPituudet();
-            try{
-                Thread.sleep(500);
-            } catch (InterruptedException e){
-                System.out.println("kuraa");
-            }
+
         }
         System.out.println("Vuoronumeroautomaatti suljettu");
         suljeVuoronumero();

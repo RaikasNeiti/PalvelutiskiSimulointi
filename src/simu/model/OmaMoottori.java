@@ -29,6 +29,26 @@ public class OmaMoottori extends Moottori {
     private double txtA_cp;
     private double txtA_ch;
 
+    private boolean cbB_a;
+    private double txtB_ap;
+    private double txtB_ah;
+    private boolean cbB_b;
+    private double txtB_bp;
+    private double txtB_bh;
+    private boolean cbB_c;
+    private double txtB_cp;
+    private double txtB_ch;
+
+    private boolean cbC_a;
+    private double txtC_ap;
+    private double txtC_ah;
+    private boolean cbC_b;
+    private double txtC_bp;
+    private double txtC_bh;
+    private boolean cbC_c;
+    private double txtC_cp;
+    private double txtC_ch;
+
     public OmaMoottori() {
 
         palvelupisteet = new Palvelupiste[9];
@@ -38,18 +58,20 @@ public class OmaMoottori extends Moottori {
         jonoC = new LinkedList<>();
 
 
+        saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
+        vuoro = new Vuoronumero(palvelupisteet);
+    }
+
+    public void alustaTiskit(){
         palvelupisteet[0] = new Palvelupiste(new Normal(txtA_ap, txtA_ah), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_a);
         palvelupisteet[1] = new Palvelupiste(new Normal(txtA_bp, txtA_bh), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_b);
         palvelupisteet[2] = new Palvelupiste(new Normal(txtA_cp, txtA_ch), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_c);
-        palvelupisteet[3] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
-        palvelupisteet[4] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, true);
-        palvelupisteet[5] = new Palvelupiste(new Normal(25, 10), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, false);
-        palvelupisteet[6] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
-        palvelupisteet[7] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, true);
-        palvelupisteet[8] = new Palvelupiste(new Normal(15, 3), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, false);
-
-        saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
-        vuoro = new Vuoronumero(palvelupisteet);
+        palvelupisteet[3] = new Palvelupiste(new Normal(txtB_ap, txtB_ah), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_a);
+        palvelupisteet[4] = new Palvelupiste(new Normal(txtB_bp, txtB_bh), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_b);
+        palvelupisteet[5] = new Palvelupiste(new Normal(txtB_cp, txtB_ch), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_c);
+        palvelupisteet[6] = new Palvelupiste(new Normal(txtC_ap, txtC_ah), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_a);
+        palvelupisteet[7] = new Palvelupiste(new Normal(txtC_bp, txtC_bh), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_b);
+        palvelupisteet[8] = new Palvelupiste(new Normal(txtC_cp, txtC_ch), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_c);
     }
 
 
@@ -148,6 +170,30 @@ public class OmaMoottori extends Moottori {
         this.cbA_c = cbA_c;
         this.txtA_cp = txtA_cp;
         this.txtA_ch = txtA_ch;
+    }
+
+    public void setTiskiB(boolean cbB_a, double txtB_ap, double txtB_ah, boolean cbB_b, double txtB_bp, double txtB_bh, boolean cbB_c, double txtB_cp ,double txtB_ch){
+        this.cbB_a = cbB_a;
+        this.txtB_ap = txtB_ap;
+        this.txtB_ah = txtB_ah;
+        this.cbB_b = cbB_b;
+        this.txtB_bp = txtB_bp;
+        this.txtB_bh = txtB_bh;
+        this.cbB_c = cbB_c;
+        this.txtB_cp = txtB_cp;
+        this.txtB_ch = txtB_ch;
+    }
+
+    public void setTiskiC(boolean cbC_a, double txtC_ap, double txtC_ah, boolean cbC_b, double txtC_bp, double txtC_bh, boolean cbC_c, double txtC_cp ,double txtC_ch){
+        this.cbC_a = cbC_a;
+        this.txtC_ap = txtC_ap;
+        this.txtC_ah = txtC_ah;
+        this.cbC_b = cbC_b;
+        this.txtC_bp = txtC_bp;
+        this.txtC_bh = txtC_bh;
+        this.cbC_c = cbC_c;
+        this.txtC_cp = txtC_cp;
+        this.txtC_ch = txtC_ch;
     }
 
 

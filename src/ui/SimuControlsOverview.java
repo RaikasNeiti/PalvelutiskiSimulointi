@@ -129,7 +129,7 @@ public class SimuControlsOverview {
         double txtC_cp = Double.parseDouble(tiskiC_cp.getText());
         double txtC_ch = Double.parseDouble(tiskiC_ch.getText());
 
-        m.setTiskiB(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
+        m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
     }
 
 

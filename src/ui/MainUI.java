@@ -92,7 +92,7 @@ public class MainUI extends Application {
             dialogStage.setScene(scene);
 
             dialogStage.show();
-
+            m.alustaTiskit();
             m.setSimulointiaika(time);
             Saie saie = new Saie(m);
             saie.start();
