@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
@@ -61,27 +61,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <GridPane layoutX="41.0" layoutY="74.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Tiski A" GridPane.rowIndex="1" />
-                        <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
-                           <buttons>
-                              <CheckBox fx:id="checkbox_A_a" mnemonicParsing="false" onAction="#handleCheckboxA_a" text="1" />
-                              <CheckBox fx:id="checkbox_A_b" mnemonicParsing="false" onAction="#handleCheckboxA_b" text="2" />
-                              <CheckBox fx:id="checkbox_A_c" mnemonicParsing="false" onAction="#handleCheckboxA_c" text="3" />
-                           </buttons>
-                        </ButtonBar>
-                     </children>
-                  </GridPane>
-                  <GridPane layoutX="264.0" layoutY="74.0">
+                  <GridPane layoutX="264.0" layoutY="14.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="14.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -91,32 +71,135 @@
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label text="Tiski B" GridPane.rowIndex="1" />
-                        <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
+                        <Label text="Tiski B" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets left="45.0" />
+                           </padding></Label>
+                        <ButtonBar buttonMinWidth="20.0" prefHeight="20.0" prefWidth="200.0">
                            <buttons>
-                              <CheckBox fx:id="checkbox_B_a" mnemonicParsing="false" onAction="#handleCheckboxB_a" text="1" />
-                              <CheckBox fx:id="checkbox_B_b" mnemonicParsing="false" onAction="#handleCheckboxB_b" text="2" />
-                              <CheckBox fx:id="checkbox_B_c" mnemonicParsing="false" onAction="#handleCheckboxB_c" text="3" />
+                              <Button mnemonicParsing="false" onAction="#handleButtonB_a">
+                                 <graphic>
+                                    <ImageView fx:id="button_B_a" fitHeight="15.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonB_b">
+                                 <graphic>
+                                    <ImageView fx:id="button_B_b" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonB_c">
+                                 <graphic>
+                                    <ImageView fx:id="button_B_c" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </buttons>
                         </ButtonBar>
                      </children>
                   </GridPane>
-                  <GridPane layoutX="485.0" layoutY="74.0">
+                  <GridPane layoutX="41.0" layoutY="14.0" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="14.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label text="Tiski C" GridPane.rowIndex="1" />
-                        <ButtonBar buttonMinWidth="20.0" prefHeight="40.0" prefWidth="200.0">
+                        <Label text="Tiski A" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets left="45.0" />
+                           </padding>
+                        </Label>
+                        <ButtonBar buttonMinWidth="20.0" prefHeight="20.0" prefWidth="200.0">
                            <buttons>
-                              <CheckBox fx:id="checkbox_C_a" mnemonicParsing="false" onAction="#handleCheckboxC_a" text="1" />
-                              <CheckBox fx:id="checkbox_C_b" mnemonicParsing="false" onAction="#handleCheckboxC_b" text="2" />
-                              <CheckBox fx:id="checkbox_C_c" mnemonicParsing="false" onAction="#handleCheckboxC_c" text="3" />
+                              <Button mnemonicParsing="false" onAction="#handleButtonA_a">
+                                 <graphic>
+                                    <ImageView fx:id="button_A_a" fitHeight="15.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonA_b">
+                                 <graphic>
+                                    <ImageView fx:id="button_A_b" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonA_c">
+                                 <graphic>
+                                    <ImageView fx:id="button_A_c" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </buttons>
+                        </ButtonBar>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="468.0" layoutY="14.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Tiski C" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets left="45.0" />
+                           </padding>
+                        </Label>
+                        <ButtonBar buttonMinWidth="20.0" prefHeight="20.0" prefWidth="200.0">
+                           <buttons>
+                              <Button mnemonicParsing="false" onAction="#handleButtonC_a">
+                                 <graphic>
+                                    <ImageView fx:id="button_C_a" fitHeight="15.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonC_b">
+                                 <graphic>
+                                    <ImageView fx:id="button_C_b" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleButtonC_c">
+                                 <graphic>
+                                    <ImageView fx:id="button_C_c" fitHeight="20.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/img/Punainenkuutio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </buttons>
                         </ButtonBar>
                      </children>
