@@ -2,6 +2,8 @@ package simu.framework;
 
 import simu.model.Palvelupiste;
 
+import static javafx.application.Platform.runLater;
+
 public abstract class Moottori{
 
     private double simulointiaika = 0;
@@ -34,7 +36,7 @@ public abstract class Moottori{
             kello.setAika(nykyaika());
             suoritaBTapahtumat();
             yritaCTapahtumat();
-            jononPituudet();
+            runLater(() -> UpdateUi());
             try{
                 Thread.sleep(500);
             } catch (InterruptedException e){
@@ -47,7 +49,7 @@ public abstract class Moottori{
             kello.setAika(nykyaika());
             suoritaBTapahtumat();
             yritaCTapahtumat();
-            jononPituudet();
+            runLater(() -> UpdateUi());
         }
 
         tulokset();
@@ -67,6 +69,7 @@ public abstract class Moottori{
         for (Palvelupiste p: palvelupisteet){
             if (!p.onVarattu() && p.onJonossa() && p.onAktiivinen()){
                 p.aloitaPalvelu();
+
             }
         }
 
@@ -93,6 +96,6 @@ public abstract class Moottori{
 
     protected abstract void tulokset(); // Määritellään simu.model-pakkauksessa Moottorin aliluokassa
 
-    protected abstract void jononPituudet();
+    protected abstract void UpdateUi();
 
 }

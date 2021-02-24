@@ -10,21 +10,25 @@ public class Vuoronumero {
         this.palvelupisteet = palvelupisteet;
     }
 
-    public void uusiAskiakas(){
+    public String uusiAskiakas(){
         double rand = (Math.random() * 100);
         Asiakas asiakas = new Asiakas();
         if(rand < a){
             palvelupisteet[0].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiA");
+            return "Tiski A";
         }
         else if(rand < b){
             palvelupisteet[3].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiB");
+            return "Tiski B";
         }
         else if(rand <= 100){
             palvelupisteet[6].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiC");
+            return "Tiski C";
         }
+        return null;
     }
 
 }

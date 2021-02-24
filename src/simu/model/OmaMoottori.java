@@ -6,12 +6,15 @@ import simu.framework.Kello;
 import simu.framework.Moottori;
 import simu.framework.Saapumisprosessi;
 import simu.framework.Tapahtuma;
+import ui.SimuAnimation;
 
 import java.util.LinkedList;
 
 
 public class OmaMoottori extends Moottori {
 
+    SimuAnimation simu;
+    private String vuorossajonoon;
     private Saapumisprosessi saapumisprosessi;
     private Vuoronumero vuoro;
     private Kello kello;
@@ -61,6 +64,9 @@ public class OmaMoottori extends Moottori {
         saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
     }
+    public void setAnim(SimuAnimation simu){
+        this.simu = simu;
+    }
 
     public void alustaTiskit(){
         palvelupisteet[0] = new Palvelupiste(new Normal(txtA_ap, txtA_ah), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_a);
@@ -90,7 +96,8 @@ public class OmaMoottori extends Moottori {
 
             case ARR1:
                 if (auki) {
-                    vuoro.uusiAskiakas();
+                    vuorossajonoon = vuoro.uusiAskiakas();
+
                     saapumisprosessi.generoiSeuraava();
                     break;
                 }
@@ -102,6 +109,9 @@ public class OmaMoottori extends Moottori {
                 a.raportti();
                 break;
         }
+
+
+
     }
 
 
@@ -150,10 +160,25 @@ public class OmaMoottori extends Moottori {
         auki = false;
     }
 
-    public void jononPituudet() {
+    public void UpdateUi() {
+        int[] jonot = new int[3];
+        boolean[] varattu = new boolean[9];
+        boolean[] aktiivinen = new boolean[9];
         System.out.println("Jonon A pituus: " + jonoA.size());
+        jonot[0] = jonoA.size();
         System.out.println("Jonon B pituus: " + jonoB.size());
+        jonot[1] = jonoB.size();
         System.out.println("Jonon C pituus: " + jonoC.size());
+        jonot[2] = jonoC.size();
+        simu.UpdateJonot(jonot);
+        for (int i = 0; i < 9; i++ ){
+            varattu[i] = palvelupisteet[i].onVarattu();
+            aktiivinen[i] = palvelupisteet[i].onAktiivinen();
+        }
+        simu.UpdateTiskit(varattu, aktiivinen);
+        simu.UpdateVuoronumero(vuorossajonoon);
+
+
     }
 
     public static double round(double luku, double tarkkuus) {
