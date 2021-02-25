@@ -53,6 +53,39 @@ public class SimuAnimation {
     @FXML
     private TextArea vuoronumero;
 
+    @FXML
+    private ImageView TiskiAJono1;
+    @FXML
+    private ImageView TiskiAJono2;
+    @FXML
+    private ImageView TiskiAJono3;
+    @FXML
+    private ImageView TiskiAJono4;
+    @FXML
+    private ImageView TiskiAJono5;
+
+    @FXML
+    private ImageView TiskiBJono1;
+    @FXML
+    private ImageView TiskiBJono2;
+    @FXML
+    private ImageView TiskiBJono3;
+    @FXML
+    private ImageView TiskiBJono4;
+    @FXML
+    private ImageView TiskiBJono5;
+
+    @FXML
+    private ImageView TiskiCJono1;
+    @FXML
+    private ImageView TiskiCJono2;
+    @FXML
+    private ImageView TiskiCJono3;
+    @FXML
+    private ImageView TiskiCJono4;
+    @FXML
+    private ImageView TiskiCJono5;
+
 
     public void setMainUI(MainUI main, OmaMoottori m){
         this.m = m;
@@ -106,9 +139,64 @@ public class SimuAnimation {
     }
 
     public void UpdateJonot(int[] jonot){
-        tiskiAjono.setText("Jono: " + Integer.toString(jonot[0]));
-        tiskiBjono.setText("Jono: " + Integer.toString(jonot[1]));
-        tiskiCjono.setText("Jono: " + Integer.toString(jonot[2]));
+
+        if(jonot[0] >= 1){ TiskiAJono1.setImage(harmaa); }
+        else{ TiskiAJono1.setImage(null); }
+
+        if(jonot[0] >= 2){ TiskiAJono2.setImage(harmaa); }
+        else{ TiskiAJono2.setImage(null); }
+
+        if(jonot[0] >= 3){ TiskiAJono3.setImage(harmaa); }
+        else{ TiskiAJono3.setImage(null); }
+
+        if(jonot[0] >= 4){ TiskiAJono4.setImage(harmaa); }
+        else{ TiskiAJono4.setImage(null); }
+
+        if(jonot[0] >= 5){ TiskiAJono5.setImage(harmaa); }
+        else{ TiskiAJono5.setImage(null); }
+
+        if(jonot[0] >= 6){ tiskiAjono.setText("+ " + Integer.toString(jonot[0]- 5)); }
+        else{ tiskiAjono.setText(""); }
+
+
+        if(jonot[1] >= 1){ TiskiBJono1.setImage(harmaa); }
+        else{ TiskiBJono1.setImage(null); }
+
+        if(jonot[1] >= 2){ TiskiBJono2.setImage(harmaa); }
+        else{ TiskiBJono2.setImage(null); }
+
+        if(jonot[1] >= 3){ TiskiBJono3.setImage(harmaa); }
+        else{ TiskiBJono3.setImage(null); }
+
+        if(jonot[1] >= 4){ TiskiBJono4.setImage(harmaa); }
+        else{ TiskiBJono4.setImage(null); }
+
+        if(jonot[1] >= 5){ TiskiBJono5.setImage(harmaa); }
+        else{ TiskiBJono5.setImage(null); }
+
+        if(jonot[1] >= 6){ tiskiBjono.setText("+ " + Integer.toString(jonot[1]- 5)); }
+        else{ tiskiBjono.setText(""); }
+
+
+
+        if(jonot[2] >= 1){ TiskiCJono1.setImage(harmaa); }
+        else{ TiskiCJono1.setImage(null); }
+
+        if(jonot[2] >= 2){ TiskiCJono2.setImage(harmaa); }
+        else{ TiskiCJono2.setImage(null); }
+
+        if(jonot[2] >= 3){ TiskiCJono3.setImage(harmaa); }
+        else{ TiskiCJono3.setImage(null); }
+
+        if(jonot[2] >= 4){ TiskiCJono4.setImage(harmaa); }
+        else{ TiskiCJono4.setImage(null); }
+
+        if(jonot[2] >= 5){ TiskiCJono5.setImage(harmaa); }
+        else{ TiskiCJono5.setImage(null); }
+
+        if(jonot[2] >= 6){ tiskiCjono.setText("+ " + Integer.toString(jonot[2]- 5)); }
+        else{ tiskiCjono.setText(""); }
+
     }
     public void UpdateTiskit(boolean[] varattu, boolean[] aktiivinen){
 

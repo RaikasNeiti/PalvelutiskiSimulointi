@@ -71,6 +71,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Tiski B" GridPane.rowIndex="1">
@@ -108,7 +113,32 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiBjono" text="Jono: 0" GridPane.rowIndex="2" />
+                        <Label fx:id="tiskiBjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <ImageView fx:id="TiskiBJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiBJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiBJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiBJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiBJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </GridPane>
                   <GridPane layoutX="41.0" layoutY="14.0" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="14.0">
@@ -119,6 +149,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Tiski A" GridPane.rowIndex="1">
@@ -157,7 +192,32 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiAjono" text="Jono: 0" GridPane.rowIndex="2" />
+                        <Label fx:id="tiskiAjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <ImageView fx:id="TiskiAJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiAJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiAJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiAJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiAJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </GridPane>
                   <GridPane layoutX="468.0" layoutY="14.0">
@@ -168,6 +228,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Tiski C" GridPane.rowIndex="1">
@@ -206,7 +271,32 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiCjono" text="Jono: 0" GridPane.rowIndex="2" />
+                        <Label fx:id="tiskiCjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <ImageView fx:id="TiskiCJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiCJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiCJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiCJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="TiskiCJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                           <image>
+                              <Image url="@../../resources/img/Harmaakuutio.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </GridPane>
                   <GridPane layoutX="211.0" layoutY="264.0" prefHeight="128.0" prefWidth="153.0">
@@ -218,7 +308,7 @@
                       <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="17.0" prefWidth="152.0" text="Vuoronumero Automaatti" />
+                        <Label prefHeight="17.0" prefWidth="152.0" text="Viimesimmät Vuoronumero" />
                         <TextArea fx:id="vuoronumero" prefHeight="70.0" prefWidth="153.0" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
