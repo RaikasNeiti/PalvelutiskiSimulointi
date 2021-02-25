@@ -175,6 +175,7 @@ public class OmaMoottori extends Moottori {
             varattu[i] = palvelupisteet[i].onVarattu();
             aktiivinen[i] = palvelupisteet[i].onAktiivinen();
         }
+        simu.SetConsole();
         simu.UpdateTiskit(varattu, aktiivinen);
         simu.UpdateVuoronumero(vuorossajonoon);
 

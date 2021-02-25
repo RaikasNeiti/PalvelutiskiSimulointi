@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import simu.model.OmaMoottori;
@@ -15,6 +16,8 @@ public class SimuAnimation {
     private Image punainen = new Image("/resources/img/Punainenkuutio.png");
     private Image harmaa = new Image("/resources/img/Harmaakuutio.png");
     private boolean A_a = false, A_b = false, A_c = false, B_a = false, B_b = false, B_c = false, C_a = false, C_b = false, C_c = false;
+    private int i;
+
 
     @FXML
     private ImageView button_A_a;
@@ -22,6 +25,9 @@ public class SimuAnimation {
     private ImageView button_A_b;
     @FXML
     private ImageView button_A_c;
+
+    @FXML
+    private TextArea console;
 
     @FXML
     private ImageView button_B_a;
@@ -45,7 +51,7 @@ public class SimuAnimation {
     private Label tiskiCjono;
 
     @FXML
-    private Label vuoronumero;
+    private TextArea vuoronumero;
 
 
     public void setMainUI(MainUI main, OmaMoottori m){
@@ -92,6 +98,11 @@ public class SimuAnimation {
             button_C_c.setImage(vihree);
         }
 
+    }
+    public void SetConsole(){
+        console.setText(console.getText() + i + "\n");
+        console.setScrollTop(Double.MAX_VALUE);
+        i++;
     }
 
     public void UpdateJonot(int[] jonot){
@@ -174,7 +185,13 @@ public class SimuAnimation {
         }
     }
     public void UpdateVuoronumero(String vuoro){
-        vuoronumero.setText(vuoro);
+
+        vuoronumero.setText(vuoronumero.getText() + vuoro + "\n");
+        vuoronumero.setScrollTop(Double.MAX_VALUE);
+    }
+    @FXML
+    private void handleButtonPause(){
+
     }
 
 

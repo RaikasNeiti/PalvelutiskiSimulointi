@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -54,7 +55,10 @@
                               </ButtonBar>
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextArea fx:id="console" layoutX="22.0" layoutY="31.0" prefHeight="262.0" prefWidth="263.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
                     </items>
                   </SplitPane>
                </children>
@@ -207,17 +211,17 @@
                         <Label fx:id="tiskiCjono" text="Jono: 0" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <GridPane layoutX="214.0" layoutY="284.0" prefHeight="90.0" prefWidth="153.0">
+                  <GridPane layoutX="211.0" layoutY="264.0" prefHeight="128.0" prefWidth="153.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label prefHeight="17.0" prefWidth="152.0" text="Vuoronumero Automaatti" />
-                        <Label fx:id="vuoronumero" GridPane.rowIndex="1" />
+                        <TextArea fx:id="vuoronumero" prefHeight="70.0" prefWidth="153.0" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
