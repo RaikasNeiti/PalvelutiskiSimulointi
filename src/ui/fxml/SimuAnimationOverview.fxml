@@ -23,11 +23,9 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button layoutX="51.0" layoutY="25.0" mnemonicParsing="false" text="Button" AnchorPane.leftAnchor="141.0" AnchorPane.topAnchor="25.0" />
-                              <Button layoutX="39.0" layoutY="25.0" mnemonicParsing="false" text="Button" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="25.0" />
                               <ButtonBar buttonMinWidth="30.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="84.0">
                                  <buttons>
-                                    <Button mnemonicParsing="false">
+                                    <Button mnemonicParsing="false" onAction="#handleSlowDown">
                                        <graphic>
                                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -35,7 +33,7 @@
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0">
+                                    <Button mnemonicParsing="false" onAction="#handleButtonPause" prefHeight="25.0" prefWidth="80.0">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -43,7 +41,7 @@
                                              </image>
                                           </ImageView>
                                        </graphic></Button>
-                                    <Button mnemonicParsing="false">
+                                    <Button mnemonicParsing="false" onAction="#handleSpeedUp">
                                        <graphic>
                                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                              <image>

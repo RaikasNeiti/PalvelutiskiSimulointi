@@ -191,7 +191,16 @@ public class SimuAnimation {
     }
     @FXML
     private void handleButtonPause(){
+        m.setPause();
 
+    }
+    @FXML
+    private void handleSpeedUp(){
+        m.setSpeed(true);
+    }
+    @FXML
+    private void handleSlowDown(){
+        m.setSpeed(false);
     }
 
 

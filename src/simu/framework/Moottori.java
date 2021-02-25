@@ -38,7 +38,7 @@ public abstract class Moottori{
             yritaCTapahtumat();
             runLater(() -> UpdateUi());
             try{
-                Thread.sleep(500);
+                Thread.sleep(getSpeed());
                 while(getPause()){
                     Thread.sleep(500);
                 }
@@ -102,5 +102,7 @@ public abstract class Moottori{
     protected abstract void UpdateUi();
 
     protected abstract boolean getPause();
+
+    protected abstract int getSpeed();
 
 }

@@ -23,6 +23,7 @@ public class OmaMoottori extends Moottori {
     private LinkedList<Asiakas> jonoC;
     private SimuAnimation anim;
     private boolean auki = true;
+    private double speed = 500;
     private boolean cbA_a;
     private double txtA_ap;
     private double txtA_ah;
@@ -81,6 +82,19 @@ public class OmaMoottori extends Moottori {
         palvelupisteet[6] = new Palvelupiste(new Normal(txtC_ap, txtC_ah), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_a);
         palvelupisteet[7] = new Palvelupiste(new Normal(txtC_bp, txtC_bh), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_b);
         palvelupisteet[8] = new Palvelupiste(new Normal(txtC_cp, txtC_ch), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_c);
+    }
+    public void setSpeed(boolean muutos){
+        if(muutos){
+            speed = speed * 0.9;
+        }
+        else{
+            speed = speed * 1.1;
+        }
+
+    }
+
+    public int getSpeed(){
+        return (int) speed;
     }
 
   
