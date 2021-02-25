@@ -39,6 +39,9 @@ public abstract class Moottori{
             runLater(() -> UpdateUi());
             try{
                 Thread.sleep(500);
+                while(getPause()){
+                    Thread.sleep(500);
+                }
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
@@ -97,5 +100,7 @@ public abstract class Moottori{
     protected abstract void tulokset(); // Määritellään simu.model-pakkauksessa Moottorin aliluokassa
 
     protected abstract void UpdateUi();
+
+    protected abstract boolean getPause();
 
 }

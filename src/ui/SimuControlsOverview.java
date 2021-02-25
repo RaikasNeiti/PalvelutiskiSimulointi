@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.w3c.dom.Text;
 import simu.model.OmaMoottori;
+import javafx.animation.AnimationTimer;
 
 public class SimuControlsOverview {
 
@@ -175,6 +176,10 @@ public class SimuControlsOverview {
         } catch (Exception e){
             System.out.println("Virhe");
         }
+    }
+
+    public void handle(long now){
+
     }
 
 }

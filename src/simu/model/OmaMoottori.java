@@ -21,6 +21,7 @@ public class OmaMoottori extends Moottori {
     private LinkedList<Asiakas> jonoA;
     private LinkedList<Asiakas> jonoB;
     private LinkedList<Asiakas> jonoC;
+    private SimuAnimation anim;
     private boolean auki = true;
     private boolean cbA_a;
     private double txtA_ap;
@@ -52,6 +53,8 @@ public class OmaMoottori extends Moottori {
     private double txtC_cp;
     private double txtC_ch;
 
+    private boolean pause = false;
+
     public OmaMoottori() {
 
         palvelupisteet = new Palvelupiste[9];
@@ -79,6 +82,8 @@ public class OmaMoottori extends Moottori {
         palvelupisteet[7] = new Palvelupiste(new Normal(txtC_bp, txtC_bh), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_b);
         palvelupisteet[8] = new Palvelupiste(new Normal(txtC_cp, txtC_ch), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_c);
     }
+
+  
 
 
     @Override
@@ -222,9 +227,21 @@ public class OmaMoottori extends Moottori {
         this.txtC_ch = txtC_ch;
     }
 
+    public void setPause(){
+        if(!pause){
+            pause = true;
+        }
+        else{
+            pause = false;
+        }
+
+    }
+
     public void setTiskiAktiivinen(int i, boolean aktiivinen){
         palvelupisteet[i].vaihdaAktiivinen(aktiivinen);
     }
+
+    public boolean getPause(){return pause;}
 
 
 }
