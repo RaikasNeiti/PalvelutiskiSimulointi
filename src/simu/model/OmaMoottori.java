@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 
 public class OmaMoottori extends Moottori {
-
+    DataAccessObject dao;
     SimuAnimation simu;
     private String vuorossajonoon;
     private Saapumisprosessi saapumisprosessi;
@@ -63,7 +63,7 @@ public class OmaMoottori extends Moottori {
         jonoA = new LinkedList<>();
         jonoB = new LinkedList<>();
         jonoC = new LinkedList<>();
-
+        dao = new DataAccessObject();
 
         saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
@@ -126,6 +126,7 @@ public class OmaMoottori extends Moottori {
                 a = palvelupisteet[t.getPalvelija()].otaJonosta();
                 a.setPoistumisaika(Kello.getInstance().getAika());
                 a.raportti();
+                dao.tallennaAsiakas(a);
                 break;
         }
 

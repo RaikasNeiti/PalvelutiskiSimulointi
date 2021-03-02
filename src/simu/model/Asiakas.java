@@ -3,20 +3,29 @@ package simu.model;
 import simu.framework.Kello;
 import simu.framework.Trace;
 
+import javax.persistence.*;
 
-// TODO:
+@Entity
+@Table(name="valuutta")
 // Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
 public class Asiakas {
-    private double saapumisaika;
-    private double poistumisaika;
+    @Id
+    @Column(name ="id")
     private int id;
-    private static int i = 1;
+    @Column(name ="saapumisaika")
+    private double saapumisaika;
+    @Column(name ="poistumisaika")
+    private double poistumisaika;
+
     private static double sum = 0, sumA = 0, sumB = 0, sumC = 0;
     static int AsiakasA = 0, AsiakasB = 0, AsiakasC= 0;
+
+    @Column(name ="tiski")
     private String tiski;
 
-    public Asiakas(){
-        id = i++;
+    public Asiakas(){}
+    public Asiakas(int id){
+        this.id = id;
 
         saapumisaika = Kello.getInstance().getAika();
         Trace.out(Trace.Level.INFO, "Uusi asiakas:" + id + ":"+saapumisaika);
@@ -39,6 +48,7 @@ public class Asiakas {
     }
 
     public void setTiski(String tiski){this.tiski = tiski;}
+    public String getTiski() {return tiski; }
 
     public void raportti(){
         //Trace.out(Trace.Level.INFO, "Asiakas "+id+ " saapui:" +saapumisaika);
@@ -63,7 +73,7 @@ public class Asiakas {
 
     }
     public static void loppuTulokset(){
-        double keskiarvo =  OmaMoottori.round( sum/i, 100.0);
+        double keskiarvo =  OmaMoottori.round( sum/Vuoronumero.getAsiakasID(), 100.0);
         System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
         System.out.println("Tiskillä A: " + OmaMoottori.round( sumA /AsiakasA, 100.0));
         System.out.println("Tiskillä B: " + OmaMoottori.round( sumB /AsiakasB, 100.0));
@@ -78,5 +88,14 @@ public class Asiakas {
     public static int getAsiakasC(){
         return AsiakasC;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
 }

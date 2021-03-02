@@ -87,6 +87,8 @@ public class SimuAnimation {
     private ImageView TiskiCJono5;
 
 
+
+
     public void setMainUI(MainUI main, OmaMoottori m){
         this.m = m;
         this.main = main;
@@ -133,9 +135,9 @@ public class SimuAnimation {
 
     }
     public void SetConsole(){
-        console.setText(console.getText() + i + "\n");
+        console.setText(console.getText() + i++ + "\n");
         console.setScrollTop(Double.MAX_VALUE);
-        i++;
+
     }
 
     public void UpdateJonot(int[] jonot){

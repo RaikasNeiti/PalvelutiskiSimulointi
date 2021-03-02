@@ -12,6 +12,8 @@
 
 # Package Files #
 *lib.xml
+*required.xml
+*mariadb-java-client-2.7.2.xml
 *.jar
 *.war
 *.nar
