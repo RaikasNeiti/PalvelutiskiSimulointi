@@ -22,6 +22,7 @@ public class OmaMoottori extends Moottori {
     private LinkedList<Asiakas> jonoB;
     private LinkedList<Asiakas> jonoC;
     private SimuAnimation anim;
+    private double dAika = 0;
     private boolean auki = true;
     private double speed = 500;
     private boolean cbA_a;
@@ -127,8 +128,11 @@ public class OmaMoottori extends Moottori {
                 a.setPoistumisaika(Kello.getInstance().getAika());
                 a.raportti();
                 dao.tallennaAsiakas(a);
+                dao.tallennaPituudet(new JononPituudet(kello.getAika() - dAika, jonoA.size(), jonoB.size(), jonoC.size()));
+                dAika = kello.getAika();
                 break;
         }
+
 
 
 

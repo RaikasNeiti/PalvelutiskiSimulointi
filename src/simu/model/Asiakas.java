@@ -6,7 +6,7 @@ import simu.framework.Trace;
 import javax.persistence.*;
 
 @Entity
-@Table(name="valuutta")
+@Table(name="asiakas")
 // Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
 public class Asiakas {
     @Id

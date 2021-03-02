@@ -32,4 +32,18 @@ public class DataAccessObject {
         }
         return false;
     }
+
+    public boolean tallennaPituudet(JononPituudet pituudet) {
+        Transaction transaktio = null;
+        try (Session istunto = istuntotehdas.openSession()){
+            transaktio = istunto.beginTransaction();
+
+            istunto.saveOrUpdate(pituudet);
+            transaktio.commit();
+            return true;
+        }catch(Exception e) {
+
+        }
+        return false;
+    }
 }
