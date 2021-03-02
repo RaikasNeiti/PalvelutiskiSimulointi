@@ -134,9 +134,10 @@ public class SimuAnimation {
         }
 
     }
-    public void SetConsole(){
-        console.setText(console.getText() + i++ + "\n");
-        console.setScrollTop(Double.MAX_VALUE);
+    public void SetConsole(int id, double poistumisaika, String tiski){
+        console.setText(console.getText() + "Asiakas: "+ id +" Poistui tiskiltä "+ tiski.substring(5,6) + "\nKello " + poistumisaika + "\n");
+        console.selectEnd();
+        console.deselect();
 
     }
 
@@ -282,6 +283,9 @@ public class SimuAnimation {
     @FXML
     private void handleButtonPause(){
         m.setPause();
+        console.setText(console.getText() + "Paused/Resumed\n" );
+        console.selectEnd();
+        console.deselect();
 
     }
     @FXML

@@ -127,6 +127,7 @@ public class OmaMoottori extends Moottori {
                 a = palvelupisteet[t.getPalvelija()].otaJonosta();
                 a.setPoistumisaika(Kello.getInstance().getAika());
                 a.raportti();
+                simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski());
                 dao.tallennaAsiakas(a);
                 dao.tallennaPituudet(new JononPituudet(kello.getAika() - dAika, jonoA.size(), jonoB.size(), jonoC.size()));
                 dAika = kello.getAika();
@@ -199,7 +200,7 @@ public class OmaMoottori extends Moottori {
             varattu[i] = palvelupisteet[i].onVarattu();
             aktiivinen[i] = palvelupisteet[i].onAktiivinen();
         }
-        simu.SetConsole();
+
         simu.UpdateTiskit(varattu, aktiivinen);
         simu.UpdateVuoronumero(vuorossajonoon);
 
