@@ -1,13 +1,9 @@
 package ui;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import org.w3c.dom.Text;
 import simu.model.OmaMoottori;
-import javafx.animation.AnimationTimer;
 
 public class SimuControlsOverview {
 
@@ -20,61 +16,61 @@ public class SimuControlsOverview {
     private TextField field;
 
     @FXML
-    private CheckBox tiskiA_a;
+    private CheckBox tiskiA1_CB;
     @FXML
-    private TextField tiskiA_ap;
+    private TextField tiskiA1_PA;       //palveluaika
     @FXML
-    private TextField tiskiA_ah;
+    private TextField tiskiA1_HA;       //palveluajan hajonta
     @FXML
-    private CheckBox tiskiA_b;
+    private CheckBox tiskiA2_CB;
     @FXML
-    private TextField tiskiA_bp;
+    private TextField tiskiA2_PA;
     @FXML
-    private TextField tiskiA_bh;
+    private TextField tiskiA2_HA;
     @FXML
-    private CheckBox tiskiA_c;
+    private CheckBox tiskiA3_CB;
     @FXML
-    private TextField tiskiA_cp;
+    private TextField tiskiA3_PA;
     @FXML
-    private TextField tiskiA_ch;
+    private TextField tiskiA3_HA;
 
     @FXML
-    private CheckBox tiskiB_a;
+    private CheckBox tiskiB1_CB;
     @FXML
-    private TextField tiskiB_ap;
+    private TextField tiskiB1_PA;
     @FXML
-    private TextField tiskiB_ah;
+    private TextField tiskiB1_HA;
     @FXML
-    private CheckBox tiskiB_b;
+    private CheckBox tiskiB2_CB;
     @FXML
-    private TextField tiskiB_bp;
+    private TextField tiskiB2_PA;
     @FXML
-    private TextField tiskiB_bh;
+    private TextField tiskiB2_HA;
     @FXML
-    private CheckBox tiskiB_c;
+    private CheckBox tiskiB3_CB;
     @FXML
-    private TextField tiskiB_cp;
+    private TextField tiskiB3_PA;
     @FXML
-    private TextField tiskiB_ch;
+    private TextField tiskiB3_HA;
 
     @FXML
-    private CheckBox tiskiC_a;
+    private CheckBox tiskiC1_CB;
     @FXML
-    private TextField tiskiC_ap;
+    private TextField tiskiC1_PA;
     @FXML
-    private TextField tiskiC_ah;
+    private TextField tiskiC1_HA;
     @FXML
-    private CheckBox tiskiC_b;
+    private CheckBox tiskiC2_CB;
     @FXML
-    private TextField tiskiC_bp;
+    private TextField tiskiC2_PA;
     @FXML
-    private TextField tiskiC_bh;
+    private TextField tiskiC2_HA;
     @FXML
-    private CheckBox tiskiC_c;
+    private CheckBox tiskiC3_CB;
     @FXML
-    private TextField tiskiC_cp;
+    private TextField tiskiC3_PA;
     @FXML
-    private TextField tiskiC_ch;
+    private TextField tiskiC3_HA;
 
 
     public SimuControlsOverview(){
@@ -87,64 +83,94 @@ public class SimuControlsOverview {
     }
 
     public void getTiskiA(){
-        boolean cbA_a = tiskiA_a.isSelected();
-        double txtA_ap = Double.parseDouble(tiskiA_ap.getText());
-        double txtA_ah = Double.parseDouble(tiskiA_ah.getText());
 
-        boolean cbA_b = tiskiA_b.isSelected();
-        double txtA_bp = Double.parseDouble(tiskiA_bp.getText());
-        double txtA_bh = Double.parseDouble(tiskiA_bh.getText());
+        boolean cbA_a = tiskiA1_CB.isSelected();
+        double txtA_ap = Double.parseDouble(tiskiA1_PA.getText());
+        double txtA_ah = Double.parseDouble(tiskiA1_HA.getText());
 
-        boolean cbA_c = tiskiA_c.isSelected();
-        double txtA_cp = Double.parseDouble(tiskiA_cp.getText());
-        double txtA_ch = Double.parseDouble(tiskiA_ch.getText());
+        boolean cbA_b = tiskiA2_CB.isSelected();
+        double txtA_bp = Double.parseDouble(tiskiA2_PA.getText());
+        double txtA_bh = Double.parseDouble(tiskiA2_HA.getText());
+
+        boolean cbA_c = tiskiA3_CB.isSelected();
+        double txtA_cp = Double.parseDouble(tiskiA3_PA.getText());
+        double txtA_ch = Double.parseDouble(tiskiA3_HA.getText());
 
         m.setTiskiA(cbA_a, txtA_ap, txtA_ah, cbA_b, txtA_bp, txtA_bh , cbA_c, txtA_cp, txtA_ch);
     }
 
     public void getTiskiB(){
-        boolean cbB_a = tiskiB_a.isSelected();
-        double txtB_ap = Double.parseDouble(tiskiB_ap.getText());
-        double txtB_ah = Double.parseDouble(tiskiB_ah.getText());
+        boolean cbB_a = tiskiB1_CB.isSelected();
+        double txtB_ap = Double.parseDouble(tiskiB1_PA.getText());
+        double txtB_ah = Double.parseDouble(tiskiB1_HA.getText());
 
-        boolean cbB_b = tiskiB_b.isSelected();
-        double txtB_bp = Double.parseDouble(tiskiB_bp.getText());
-        double txtB_bh = Double.parseDouble(tiskiB_bh.getText());
+        boolean cbB_b = tiskiB2_CB.isSelected();
+        double txtB_bp = Double.parseDouble(tiskiB2_PA.getText());
+        double txtB_bh = Double.parseDouble(tiskiB2_HA.getText());
 
-        boolean cbB_c = tiskiB_c.isSelected();
-        double txtB_cp = Double.parseDouble(tiskiB_cp.getText());
-        double txtB_ch = Double.parseDouble(tiskiB_ch.getText());
+        boolean cbB_c = tiskiB3_CB.isSelected();
+        double txtB_cp = Double.parseDouble(tiskiB3_PA.getText());
+        double txtB_ch = Double.parseDouble(tiskiB3_HA.getText());
 
         m.setTiskiB(cbB_a, txtB_ap, txtB_ah, cbB_b, txtB_bp, txtB_bh , cbB_c, txtB_cp, txtB_ch);
     }
 
     public void getTiskiC(){
-        boolean cbC_a = tiskiC_a.isSelected();
-        double txtC_ap = Double.parseDouble(tiskiC_ap.getText());
-        double txtC_ah = Double.parseDouble(tiskiC_ah.getText());
+        boolean cbC_a = tiskiC1_CB.isSelected();
+        double txtC_ap = Double.parseDouble(tiskiC1_PA.getText());
+        double txtC_ah = Double.parseDouble(tiskiC1_HA.getText());
 
-        boolean cbC_b = tiskiC_b.isSelected();
-        double txtC_bp = Double.parseDouble(tiskiC_bp.getText());
-        double txtC_bh = Double.parseDouble(tiskiC_bh.getText());
+        boolean cbC_b = tiskiC2_CB.isSelected();
+        double txtC_bp = Double.parseDouble(tiskiC2_PA.getText());
+        double txtC_bh = Double.parseDouble(tiskiC2_HA.getText());
 
-        boolean cbC_c = tiskiC_c.isSelected();
-        double txtC_cp = Double.parseDouble(tiskiC_cp.getText());
-        double txtC_ch = Double.parseDouble(tiskiC_ch.getText());
+        boolean cbC_c = tiskiC3_CB.isSelected();
+        double txtC_cp = Double.parseDouble(tiskiC3_PA.getText());
+        double txtC_ch = Double.parseDouble(tiskiC3_HA.getText());
 
         m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
     }
     public boolean[] getCheckbox(){
-        checkbox[0] = tiskiA_a.isSelected();
-        checkbox[1] = tiskiA_b.isSelected();
-        checkbox[2] = tiskiA_c.isSelected();
-        checkbox[3] = tiskiB_a.isSelected();
-        checkbox[4] = tiskiB_b.isSelected();
-        checkbox[5] = tiskiB_c.isSelected();
-        checkbox[6] = tiskiC_a.isSelected();
-        checkbox[7] = tiskiC_b.isSelected();
-        checkbox[8] = tiskiC_c.isSelected();
+        checkbox[0] = tiskiA1_CB.isSelected();
+        checkbox[1] = tiskiA2_CB.isSelected();
+        checkbox[2] = tiskiA3_CB.isSelected();
+        checkbox[3] = tiskiB1_CB.isSelected();
+        checkbox[4] = tiskiB2_CB.isSelected();
+        checkbox[5] = tiskiB3_CB.isSelected();
+        checkbox[6] = tiskiC1_CB.isSelected();
+        checkbox[7] = tiskiC2_CB.isSelected();
+        checkbox[8] = tiskiC3_CB.isSelected();
 
         return checkbox;
+    }
+
+    public double[] getPalveluajat(){
+        double[] palveluajat = new double[9];
+        palveluajat[0] = Double.parseDouble(tiskiA1_PA.getText());
+        palveluajat[1] = Double.parseDouble(tiskiA2_PA.getText());
+        palveluajat[2] = Double.parseDouble(tiskiA3_PA.getText());
+        palveluajat[3] = Double.parseDouble(tiskiB1_PA.getText());
+        palveluajat[4] = Double.parseDouble(tiskiB2_PA.getText());
+        palveluajat[5] = Double.parseDouble(tiskiB3_PA.getText());
+        palveluajat[6] = Double.parseDouble(tiskiC1_PA.getText());
+        palveluajat[7] = Double.parseDouble(tiskiC2_PA.getText());
+        palveluajat[8] = Double.parseDouble(tiskiC3_PA.getText());
+        return palveluajat;
+    }
+
+    public double[] getHajonnat(){
+        double[] hajonnat = new double[9];
+        hajonnat[0] = Double.parseDouble(tiskiA1_HA.getText());
+        hajonnat[1] = Double.parseDouble(tiskiA2_HA.getText());
+        hajonnat[2] = Double.parseDouble(tiskiA3_HA.getText());
+        hajonnat[3] = Double.parseDouble(tiskiB1_HA.getText());
+        hajonnat[4] = Double.parseDouble(tiskiB2_HA.getText());
+        hajonnat[5] = Double.parseDouble(tiskiB3_HA.getText());
+        hajonnat[6] = Double.parseDouble(tiskiC1_HA.getText());
+        hajonnat[7] = Double.parseDouble(tiskiC2_HA.getText());
+        hajonnat[8] = Double.parseDouble(tiskiC3_HA.getText());
+        return hajonnat;
+
     }
 
 
@@ -155,7 +181,11 @@ public class SimuControlsOverview {
             getTiskiB();
             getTiskiC();
 
-            System.out.println(tiskiA_a.isSelected());
+            m.setCheckbox(getCheckbox());
+            m.setPalveluajat(getPalveluajat());
+            m.setHajonnat(getHajonnat());
+
+            System.out.println(tiskiA1_CB.isSelected());
             time = Double.parseDouble(field.getText());
 
             System.out.println(time);

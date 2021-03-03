@@ -25,6 +25,12 @@ public class OmaMoottori extends Moottori {
     private double dAika = 0;
     private boolean auki = true;
     private double speed = 500;
+
+    private boolean[] checkboxes;
+    private double[] palveluajat;
+    private double[] hajonnat;
+
+
     private boolean cbA_a;
     private double txtA_ap;
     private double txtA_ah;
@@ -74,15 +80,15 @@ public class OmaMoottori extends Moottori {
     }
 
     public void alustaTiskit(){
-        palvelupisteet[0] = new Palvelupiste(new Normal(txtA_ap, txtA_ah), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_a);
-        palvelupisteet[1] = new Palvelupiste(new Normal(txtA_bp, txtA_bh), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_b);
-        palvelupisteet[2] = new Palvelupiste(new Normal(txtA_cp, txtA_ch), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, cbA_c);
-        palvelupisteet[3] = new Palvelupiste(new Normal(txtB_ap, txtB_ah), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_a);
-        palvelupisteet[4] = new Palvelupiste(new Normal(txtB_bp, txtB_bh), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_b);
-        palvelupisteet[5] = new Palvelupiste(new Normal(txtB_cp, txtB_ch), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, cbB_c);
-        palvelupisteet[6] = new Palvelupiste(new Normal(txtC_ap, txtC_ah), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_a);
-        palvelupisteet[7] = new Palvelupiste(new Normal(txtC_bp, txtC_bh), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_b);
-        palvelupisteet[8] = new Palvelupiste(new Normal(txtC_cp, txtC_ch), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, cbC_c);
+        palvelupisteet[0] = new Palvelupiste(new Normal(palveluajat[0], hajonnat[0]), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, checkboxes[0]);
+        palvelupisteet[1] = new Palvelupiste(new Normal(palveluajat[1], hajonnat[1]), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, checkboxes[1]);
+        palvelupisteet[2] = new Palvelupiste(new Normal(palveluajat[2], hajonnat[2]), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, checkboxes[2]);
+        palvelupisteet[3] = new Palvelupiste(new Normal(palveluajat[3], hajonnat[3]), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, checkboxes[3]);
+        palvelupisteet[4] = new Palvelupiste(new Normal(palveluajat[4], hajonnat[4]), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, checkboxes[4]);
+        palvelupisteet[5] = new Palvelupiste(new Normal(palveluajat[5], hajonnat[5]), tapahtumalista, TapahtumanTyyppi.TISKI2, jonoB, checkboxes[5]);
+        palvelupisteet[6] = new Palvelupiste(new Normal(palveluajat[6], hajonnat[6]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[6]);
+        palvelupisteet[7] = new Palvelupiste(new Normal(palveluajat[7], hajonnat[7]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[7]);
+        palvelupisteet[8] = new Palvelupiste(new Normal(palveluajat[8], hajonnat[8]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[8]);
     }
     public void setSpeed(boolean muutos){
         if(muutos){
@@ -264,4 +270,15 @@ public class OmaMoottori extends Moottori {
     public boolean getPause(){return pause;}
 
 
+    public void setCheckbox(boolean[] checkbox) {
+        this.checkboxes = checkbox;
+    }
+
+    public void setPalveluajat(double[] palveluajat) {
+        this.palveluajat = palveluajat;
+    }
+
+    public void setHajonnat(double[] hajonnat) {
+        this.hajonnat = hajonnat;
+    }
 }
