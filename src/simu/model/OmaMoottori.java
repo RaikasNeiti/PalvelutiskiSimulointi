@@ -121,14 +121,15 @@ public class OmaMoottori extends Moottori {
         switch (t.getTyyppi()) {
 
             case ARR1:
+                simu.setSaapui();
                 if (auki) {
                     vuorossajonoon = vuoro.uusiAskiakas();
-
                     saapumisprosessi.generoiSeuraava();
                     break;
                 }
             case TISKI1:
             case TISKI2:
+
             case TISKI3:
                 a = palvelupisteet[t.getPalvelija()].otaJonosta();
                 a.setPoistumisaika(Kello.getInstance().getAika());
@@ -206,7 +207,6 @@ public class OmaMoottori extends Moottori {
             varattu[i] = palvelupisteet[i].onVarattu();
             aktiivinen[i] = palvelupisteet[i].onAktiivinen();
         }
-
         simu.UpdateTiskit(varattu, aktiivinen);
         simu.UpdateVuoronumero(vuorossajonoon);
 

@@ -6,11 +6,11 @@ import eduni.distributions.ContinuousGenerator;
 import simu.framework.Kello;
 import simu.framework.Tapahtuma;
 import simu.framework.Tapahtumalista;
+import ui.SimuAnimation;
 
 // TODO:
 // Palvelupistekohtaiset toiminnallisuudet, laskutoimitukset (+ tarvittavat muuttujat) ja raportointi koodattava
 public class Palvelupiste {
-
     private LinkedList<Asiakas> jono; // Tietorakennetoteutus
 
     private ContinuousGenerator generator;
@@ -41,6 +41,7 @@ public class Palvelupiste {
 
 
     public void lisaaJonoon(Asiakas a){   // Jonon 1. asiakas aina palvelussa (väärin!!!!!)
+
         jono.add(a);
 
     }

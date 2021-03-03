@@ -113,31 +113,49 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiBjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <Label fx:id="tiskiBjono" text="Jono: 0" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin></Label>
                         <ImageView fx:id="TiskiBJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiBJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiBJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiBJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiBJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                      </children>
                   </GridPane>
@@ -192,31 +210,49 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiAjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <Label fx:id="tiskiAjono" text="Jono: 0" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin></Label>
                         <ImageView fx:id="TiskiAJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiAJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiAJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiAJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiAJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                      </children>
                   </GridPane>
@@ -271,31 +307,49 @@
                               </Button>
                            </buttons>
                         </ButtonBar>
-                        <Label fx:id="tiskiCjono" text="Jono: 0" GridPane.rowIndex="7" />
+                        <Label fx:id="tiskiCjono" text="Jono: 0" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin></Label>
                         <ImageView fx:id="TiskiCJono1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiCJono2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiCJono3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiCJono4" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                         <ImageView fx:id="TiskiCJono5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                            <image>
                               <Image url="@../../resources/img/Harmaakuutio.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
                         </ImageView>
                      </children>
                   </GridPane>

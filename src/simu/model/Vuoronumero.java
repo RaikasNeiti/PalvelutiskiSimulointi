@@ -1,5 +1,6 @@
 package simu.model;
 
+
 public class Vuoronumero {
     double a = 33.0;
     double b = 60.0;

@@ -11,7 +11,9 @@ import simu.model.OmaMoottori;
 
 public class SimuAnimation {
     MainUI main;
+    private boolean pause = false;
     OmaMoottori m;
+    private int saapumisid = 1;
     private Image vihree = new Image("/resources/img/Vihreekuutio.png");
     private Image punainen = new Image("/resources/img/Punainenkuutio.png");
     private Image harmaa = new Image("/resources/img/Harmaakuutio.png");
@@ -138,8 +140,13 @@ public class SimuAnimation {
         console.setText(console.getText() + "Asiakas: "+ id +" Poistui tiskiltä "+ tiski.substring(5,6) + "\nKello " + poistumisaika + "\n");
         console.selectEnd();
         console.deselect();
-
     }
+    public void setSaapui(){
+        console.setText(console.getText()+"Asiakas " + saapumisid++ + " saapui jonoon \n");
+        console.selectEnd();
+        console.deselect();
+    }
+
 
     public void UpdateJonot(int[] jonot){
 
@@ -282,19 +289,35 @@ public class SimuAnimation {
     }
     @FXML
     private void handleButtonPause(){
+
+        if(pause){
+            console.setText(console.getText() + "Resumed\n" );
+            console.selectEnd();
+            console.deselect();
+            pause = false;
+        }else{
+            console.setText(console.getText() + "Paused\n" );
+            console.selectEnd();
+            console.deselect();
+            pause = true;
+        }
         m.setPause();
-        console.setText(console.getText() + "Paused/Resumed\n" );
-        console.selectEnd();
-        console.deselect();
+
 
     }
     @FXML
     private void handleSpeedUp(){
         m.setSpeed(true);
+        console.setText(console.getText()+"Nopeutettu. \n");
+        console.selectEnd();
+        console.deselect();
     }
     @FXML
     private void handleSlowDown(){
         m.setSpeed(false);
+        console.setText(console.getText()+"Hidastettu. \n");
+        console.selectEnd();
+        console.deselect();
     }
 
 
@@ -407,8 +430,4 @@ public class SimuAnimation {
         }
         m.setTiskiAktiivinen(8, C_c);
     }
-
-
-
-
 }

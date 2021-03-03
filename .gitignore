@@ -13,7 +13,7 @@
 # Package Files #
 *lib.xml
 *required.xml
-*mariadb-java-client-2.7.2.xml
+*mariadb-java-client-2_7_2.xml
 *.jar
 *.war
 *.nar
