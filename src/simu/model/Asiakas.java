@@ -97,5 +97,19 @@ public class Asiakas {
         this.id = id;
     }
 
+    public static double getSum() {
+        return sum;
+    }
 
+    public static double getSumA() {
+        return sumA;
+    }
+
+    public static double getSumB() {
+        return sumB;
+    }
+
+    public static double getSumC() {
+        return sumC;
+    }
 }

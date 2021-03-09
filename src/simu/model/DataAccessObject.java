@@ -1,49 +1,51 @@
 package simu.model;
-import org.hibernate.*;
-import org.hibernate.cfg.Configuration;
+
+
+import java.sql.*;
+
 
 
 public class DataAccessObject {
 
-    SessionFactory istuntotehdas = null;
+    Connection connection;
+    Statement statement = null;
+    ResultSet rs = null;
+    OmaMoottori m;
+
 
     public DataAccessObject() {
-
         try {
-            istuntotehdas = new Configuration().configure().buildSessionFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Istuntotehtaan luominen ei 	onnistunut.");
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost/FJData?user=olso&password=olso");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            System.err.println(e.getErrorCode());
+            System.err.println(e.getSQLState());
+            System.err.println("JBDC-ajurin lataus epäonnistui");
             System.exit(-1);
         }
     }
-
-
-    public boolean tallennaAsiakas(Asiakas asiakas) {
-        Transaction transaktio = null;
-        try (Session istunto = istuntotehdas.openSession()){
-            transaktio = istunto.beginTransaction();
-
-            istunto.saveOrUpdate(asiakas);
-            transaktio.commit();
-            return true;
-        }catch(Exception e) {
-
+    public DataAccessObject(OmaMoottori m) {
+        this.m = m;
+        try {
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost/FJData?user=olso&password=olso");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            System.err.println(e.getErrorCode());
+            System.err.println(e.getSQLState());
+            System.err.println("JBDC-ajurin lataus epäonnistui");
+            System.exit(-1);
         }
-        return false;
+    }
+    /*
+    public boolean lisääTulokset(){
+        int x =  statement.executeUpdate("INSERT INTO tulokset VALUES('" + m + "', '" + m + "', '" + m + "')");
+        if (x == 1) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    public boolean tallennaPituudet(JononPituudet pituudet) {
-        Transaction transaktio = null;
-        try (Session istunto = istuntotehdas.openSession()){
-            transaktio = istunto.beginTransaction();
+     */
 
-            istunto.saveOrUpdate(pituudet);
-            transaktio.commit();
-            return true;
-        }catch(Exception e) {
-
-        }
-        return false;
-    }
 }

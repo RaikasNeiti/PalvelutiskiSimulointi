@@ -9,6 +9,7 @@ import simu.framework.Tapahtuma;
 import ui.SimuAnimation;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class OmaMoottori extends Moottori {
@@ -29,6 +30,29 @@ public class OmaMoottori extends Moottori {
     private boolean[] checkboxes;
     private double[] palveluajat;
     private double[] hajonnat;
+
+    protected double jononAPituus = 0;
+    protected double jononBPituus = 0;
+    protected double jononCPituus = 0;
+    protected double kelloSuljettu;
+    protected double käyttöprosentti;
+    protected double käyttöprosenttiA;
+    protected double käyttöprosenttiB;
+    protected double käyttöprosenttiC;
+    protected double loppuAika ;
+    protected int asiakkaidenMäärä;
+    protected int määräA;
+    protected int määräB;
+    protected int määräC;
+    protected double keskiaika;
+    protected double keskiaikaA;
+    protected double keskiaikaB;
+    protected double keskiaikaC;
+    protected double jononKeskipituusA;
+    protected double jononKeskipituusB;
+    protected double jononKeskipituusC;
+
+
 
 
     private boolean cbA_a;
@@ -70,7 +94,7 @@ public class OmaMoottori extends Moottori {
         jonoA = new LinkedList<>();
         jonoB = new LinkedList<>();
         jonoC = new LinkedList<>();
-        dao = new DataAccessObject();
+        dao = new DataAccessObject(this);
 
         saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
         vuoro = new Vuoronumero(palvelupisteet);
@@ -129,17 +153,24 @@ public class OmaMoottori extends Moottori {
                 }
             case TISKI1:
             case TISKI2:
-
             case TISKI3:
                 a = palvelupisteet[t.getPalvelija()].otaJonosta();
                 a.setPoistumisaika(Kello.getInstance().getAika());
                 a.raportti();
                 simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski());
-                dao.tallennaAsiakas(a);
-                dao.tallennaPituudet(new JononPituudet(kello.getAika() - dAika, jonoA.size(), jonoB.size(), jonoC.size()));
+                //dao.tallennaAsiakas(a);
+                //dao.tallennaPituudet(new JononPituudet(kello.getAika() - dAika, jonoA.size(), jonoB.size(), jonoC.size()));
                 dAika = kello.getAika();
                 break;
         }
+
+        if(auki) {
+            jononAPituus += (kello.getAika() - dAika) * jonoA.size();
+            jononBPituus += (kello.getAika() - dAika) * jonoB.size();
+            jononCPituus += (kello.getAika() - dAika) * jonoC.size();
+            dAika = kello.getAika();
+        }
+
 
 
 
@@ -157,7 +188,6 @@ public class OmaMoottori extends Moottori {
         Asiakas.loppuTulokset();
         for (Palvelupiste p : palvelupisteet) {
             System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " + round(p.kaytossaoloProsentti(), 100));
-
         }
         System.out.println("Tiskien käyttössäoloprosenttit:");
         int i;
@@ -168,28 +198,35 @@ public class OmaMoottori extends Moottori {
             aktiivinen += palvelupisteet[i].getInactive();
             if (i == 2) {
                 System.out.println("TiskiA: " + round(100 * palveluAika / aktiivinen, 100));
+                käyttöprosenttiA = round(100 * palveluAika / aktiivinen, 100);
                 TPalveluAika += palveluAika;
                 palveluAika = 0;
                 TAktiivinen += aktiivinen;
                 aktiivinen = 0;
             } else if (i == 5) {
                 System.out.println("TiskiB: " + round(100 * palveluAika / aktiivinen, 100));
+                käyttöprosenttiB = round(100 * palveluAika / aktiivinen, 100);
                 TPalveluAika += palveluAika;
                 palveluAika = 0;
                 TAktiivinen += aktiivinen;
                 aktiivinen = 0;
             } else if (i == 8) {
                 System.out.println("TiskiC: " + round(100 * palveluAika / aktiivinen, 100));
+                käyttöprosenttiC = round(100 * palveluAika / aktiivinen, 100);
                 TPalveluAika += palveluAika;
                 TAktiivinen += aktiivinen;
                 System.out.println("Kaikki tiskit: " + round(100 * TPalveluAika / TAktiivinen, 100));
+                käyttöprosentti = round(100 * TPalveluAika / TAktiivinen, 100);
             }
         }
+        tallenaDatabaseen();
 
     }
 
     public void suljeVuoronumero() {
         auki = false;
+        kelloSuljettu = kello.getAika();
+
     }
 
     public void UpdateUi() {
@@ -260,6 +297,27 @@ public class OmaMoottori extends Moottori {
         else{
             pause = false;
         }
+
+    }
+
+
+    public void tallenaDatabaseen(){
+        loppuAika = kello.getAika();
+        asiakkaidenMäärä = Vuoronumero.getAsiakasID();
+        määräA = Asiakas.getAsiakasA();
+        määräB = Asiakas.getAsiakasB();
+        määräC = Asiakas.getAsiakasC();
+        keskiaika = Asiakas.getSum() / asiakkaidenMäärä;
+        keskiaikaA = Asiakas.getSumA() / määräA;
+        keskiaikaB = Asiakas.getSumB() / määräB;
+        keskiaikaC = Asiakas.getSumC() / määräC;
+        jononKeskipituusA = jononAPituus / kelloSuljettu;
+        jononKeskipituusB = jononBPituus / kelloSuljettu;
+        jononKeskipituusC = jononCPituus / kelloSuljettu;
+        System.out.println(jononKeskipituusA);
+        System.out.println(jononKeskipituusB);
+        System.out.println(jononKeskipituusC);
+
 
     }
 
