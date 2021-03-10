@@ -139,11 +139,16 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         jonoA.clear();
         jonoB.clear();
         jonoC.clear();
+        tapahtumalista.nollaa();
+        Asiakas.nollaaAsiakkaat();
         Palvelupiste.nollaa();
         dAika=0;
         jononAPituus = 0;
         jononBPituus = 0;
         jononCPituus = 0;
+        for(Palvelupiste p : palvelupisteet){
+            p.nollaaTulokset();
+        }
         saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
     }
 
@@ -154,8 +159,8 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         switch (t.getTyyppi()) {
 
             case ARR1:
-                simu.setSaapui();
                 if (auki) {
+                    simu.setSaapui();
                     vuorossajonoon = vuoro.uusiAskiakas();
                     saapumisprosessi.generoiSeuraava();
                     break;

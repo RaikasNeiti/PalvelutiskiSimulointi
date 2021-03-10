@@ -101,4 +101,9 @@ public class Palvelupiste {
         i=0;
     }
 
+    public void nollaaTulokset() {
+        KokonaisPalveluAika = 0;
+        inactive = 0;
+
+    }
 }

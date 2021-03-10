@@ -55,6 +55,14 @@ public class DataAccessObject {
         }
     }
 
+    public ResultSet getRs() {
+        try{
+        statement = connection.createStatement();
+        rs = statement.executeQuery("SELECT * FROM tulokset");
+        return rs;
+        }catch (SQLException e){
 
-
+        }
+        return null;
+    }
 }

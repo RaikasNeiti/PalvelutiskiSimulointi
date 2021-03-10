@@ -26,6 +26,10 @@ public class Tapahtumalista {
         return lista.size() == 0;
     }
 
+    public void nollaa(){
+        lista.clear();
+    }
+
 
 
 }

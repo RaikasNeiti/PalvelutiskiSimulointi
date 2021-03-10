@@ -5,27 +5,20 @@ import simu.framework.Trace;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="asiakas")
+
 // Asiakas koodataan simulointimallin edellyttämällä tavalla (data!)
 public class Asiakas {
-    @Id
-    @Column(name ="id")
-    private int id;
-    @Column(name ="saapumisaika")
-    private double saapumisaika;
-    @Column(name ="poistumisaika")
-    private double poistumisaika;
 
+    private int id;
+    private double saapumisaika;
+    private double poistumisaika;
     private static double sum = 0, sumA = 0, sumB = 0, sumC = 0;
     static int AsiakasA = 0, AsiakasB = 0, AsiakasC= 0;
     static int i = 1;
-
-    @Column(name ="tiski")
     private String tiski;
 
     public Asiakas(){
-        this.id = i;
+        this.id = i++;
 
         saapumisaika = Kello.getInstance().getAika();
         Trace.out(Trace.Level.INFO, "Uusi asiakas:" + id + ":"+saapumisaika);
@@ -112,7 +105,7 @@ public class Asiakas {
         return sumC;
     }
 
-    public static void nollaaAsaikkaat(){
+    public static void nollaaAsiakkaat(){
         sum = 0;
         sumA = 0;
         sumB = 0;
