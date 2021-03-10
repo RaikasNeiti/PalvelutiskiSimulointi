@@ -312,6 +312,7 @@ public class SimuAnimation {
     public void closedown(){
         Stage stage = (Stage) button_A_a.getScene().getWindow();
         stage.close();
+        main.showDataController();
     }
 
 

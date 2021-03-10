@@ -97,6 +97,9 @@ public class MainUI extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
+            DataController controller = loader.getController();
+            controller.setData();
+
             // Set the persons into the controller.
 
 
@@ -135,57 +138,6 @@ public class MainUI extends Application {
         }
 
     }
-
-    /*
-    private void initUI(Stage stage){
-        BorderPane roota = new BorderPane();
-        HBox root = new HBox(5);
-        HBox roots = new HBox();
-        root.setPadding(new Insets(10));
-        root.setAlignment(Pos.BASELINE_RIGHT);
-
-
-        Button asetaBtn = new Button("Aseta Aika");
-
-        TextField field = new TextField();
-        TextFormatter<Double> formatter = new TextFormatter<>(new DoubleStringConverter(), 1500d);
-        field.setTextFormatter(formatter);
-
-
-        var text = new Text("Palvelutiski simulaattori.");
-
-        text.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-        text.setId("text");
-
-        root.getChildren().addAll(field,asetaBtn);
-        root.setAlignment(Pos.BOTTOM_CENTER);
-        roots.getChildren().add(text);
-        roots.setAlignment(Pos.TOP_CENTER);
-        roota.setCenter(root);
-        roota.setTop(roots);
-        Scene scene = new Scene(roota,300,150);
-        stage.setTitle("MainUi");
-        stage.setScene(scene);
-        stage.show();
-
-        asetaBtn.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event){
-               try{
-                   value = Double.parseDouble(field.getText());
-                   System.out.println(value);
-                   m.setSimulointiaika(value);
-                   m.aja();
-               } catch (NumberFormatException e) {
-                   System.out.println("Not a number.");
-               }
-            }
-        });
-
-    }
-
-     */
-
 
     public static void main(String[] args) {
         launch(args);

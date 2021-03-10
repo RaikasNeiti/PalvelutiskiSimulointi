@@ -11,6 +11,8 @@ import ui.SimuAnimation;
 import java.util.LinkedList;
 import java.util.List;
 
+import static javafx.application.Platform.runLater;
+
 
 public class OmaMoottori extends Moottori implements IOmaMoottori{
     DataAccessObject dao;
@@ -165,17 +167,23 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
                     saapumisprosessi.generoiSeuraava();
                     break;
                 }
+                else{
+                    break;
+                }
             case TISKI1:
             case TISKI2:
             case TISKI3:
-                a = palvelupisteet[t.getPalvelija()].otaJonosta();
-                a.setPoistumisaika(Kello.getInstance().getAika());
-                a.raportti();
-                simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski());
-                //dao.tallennaAsiakas(a);
-                //dao.tallennaPituudet(new JononPituudet(kello.getAika() - dAika, jonoA.size(), jonoB.size(), jonoC.size()));
-                dAika = kello.getAika();
-                break;
+                try{
+                    a = palvelupisteet[t.getPalvelija()].otaJonosta();
+                    a.setPoistumisaika(Kello.getInstance().getAika());
+                    a.raportti();
+                    simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski());
+                    dAika = kello.getAika();
+                    break;
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
+
         }
 
         if(auki) {
@@ -235,6 +243,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
             }
         }
         tallenaDatabaseen();
+        runLater(() -> simu.closedown());
 
     }
 
@@ -312,7 +321,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         else{
             pause = false;
         }
-        simu.closedown();
+
 
     }
 
