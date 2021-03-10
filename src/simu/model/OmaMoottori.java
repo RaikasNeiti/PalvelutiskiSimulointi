@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class OmaMoottori extends Moottori {
+public class OmaMoottori extends Moottori implements IOmaMoottori{
     DataAccessObject dao;
     SimuAnimation simu;
     private String vuorossajonoon;
@@ -135,6 +135,15 @@ public class OmaMoottori extends Moottori {
     protected void alustukset() {
         //alustukset
         auki = true;
+        kello.setAika(0);
+        jonoA.clear();
+        jonoB.clear();
+        jonoC.clear();
+        Palvelupiste.nollaa();
+        dAika=0;
+        jononAPituus = 0;
+        jononBPituus = 0;
+        jononCPituus = 0;
         saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
     }
 
@@ -304,21 +313,22 @@ public class OmaMoottori extends Moottori {
 
 
     public void tallenaDatabaseen(){
-        loppuAika = kello.getAika();
-        asiakkaidenMäärä = Vuoronumero.getAsiakasID();
+        loppuAika = round(kello.getAika(),100);
+        asiakkaidenMäärä = Asiakas.getMäärä();
         määräA = Asiakas.getAsiakasA();
         määräB = Asiakas.getAsiakasB();
         määräC = Asiakas.getAsiakasC();
-        keskiaika = Asiakas.getSum() / asiakkaidenMäärä;
-        keskiaikaA = Asiakas.getSumA() / määräA;
-        keskiaikaB = Asiakas.getSumB() / määräB;
-        keskiaikaC = Asiakas.getSumC() / määräC;
-        jononKeskipituusA = jononAPituus / kelloSuljettu;
-        jononKeskipituusB = jononBPituus / kelloSuljettu;
-        jononKeskipituusC = jononCPituus / kelloSuljettu;
+        keskiaika = round(Asiakas.getSum() / asiakkaidenMäärä, 100);
+        keskiaikaA = round(Asiakas.getSumA() / määräA, 100);
+        keskiaikaB = round(Asiakas.getSumB() / määräB, 100);
+        keskiaikaC = round(Asiakas.getSumC() / määräC, 100);
+        jononKeskipituusA = round(jononAPituus / kelloSuljettu,100);
+        jononKeskipituusB = round(jononBPituus / kelloSuljettu,100);
+        jononKeskipituusC = round(jononCPituus / kelloSuljettu,100);
         System.out.println(jononKeskipituusA);
         System.out.println(jononKeskipituusB);
         System.out.println(jononKeskipituusC);
+        dao.lisääTulokset();
 
 
     }

@@ -36,16 +36,25 @@ public class DataAccessObject {
             System.exit(-1);
         }
     }
-    /*
+
     public boolean lisääTulokset(){
-        int x =  statement.executeUpdate("INSERT INTO tulokset VALUES('" + m + "', '" + m + "', '" + m + "')");
-        if (x == 1) {
-            return true;
-        }else {
+        try {
+            statement = connection.createStatement();
+            int x = statement.executeUpdate("INSERT INTO tulokset(aika, maara, maaraA, maaraB, maaraC, keskiaika, keskiaikaA, keskiaikaB, keskiaikaC, jononPituusA, jononPituusB, jononPituusC,kayttoprosentti," +
+                    " kayttoprosenttiA,kayttoprosenttiB, kayttoprosenttiC) VALUES('" + m.loppuAika + "', '" + m.asiakkaidenMäärä + "', '" + m.määräA + "', '" + m.määräB + "', '" + m.määräC + "'" +
+                    ", '" + m.keskiaika + "', '" + m.keskiaikaA + "', '" + m.keskiaikaB + "', '" + m.keskiaikaC + "', '" + m.jononKeskipituusA + "', '" + m.jononKeskipituusB + "', '" + m.jononKeskipituusC + "'" +
+                    ", '" + m.käyttöprosentti + "', '" + m.käyttöprosenttiA + "', '" + m.käyttöprosenttiB + "', '" + m.käyttöprosenttiC + "')");
+            if (x == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
             return false;
         }
     }
 
-     */
+
 
 }

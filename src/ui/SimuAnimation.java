@@ -9,12 +9,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import simu.model.IOmaMoottori;
 import simu.model.OmaMoottori;
 
 public class SimuAnimation {
     MainUI main;
     private boolean pause = false;
-    OmaMoottori m;
+    IOmaMoottori m;
     private int saapumisid = 1;
     private Image vihree = new Image("/resources/img/Vihreekuutio.png");
     private Image punainen = new Image("/resources/img/Punainenkuutio.png");
@@ -93,7 +94,7 @@ public class SimuAnimation {
 
 
 
-    public void setMainUI(MainUI main, OmaMoottori m){
+    public void setMainUI(MainUI main, IOmaMoottori m){
         this.m = m;
         this.main = main;
         m.setAnim(this);

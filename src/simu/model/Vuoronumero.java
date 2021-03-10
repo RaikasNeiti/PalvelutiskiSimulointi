@@ -4,7 +4,6 @@ package simu.model;
 public class Vuoronumero {
     double a = 33.0;
     double b = 60.0;
-    static int asiakasID = 1;
     Palvelupiste[] palvelupisteet;
 
     public Vuoronumero(Palvelupiste[] palvelupisteet){
@@ -13,7 +12,7 @@ public class Vuoronumero {
 
     public String uusiAskiakas(){
         double rand = (Math.random() * 100);
-        Asiakas asiakas = new Asiakas(asiakasID++);
+        Asiakas asiakas = new Asiakas();
         if(rand < a){
             palvelupisteet[0].lisaaJonoon(asiakas);
             asiakas.setTiski("TiskiA");
@@ -31,7 +30,5 @@ public class Vuoronumero {
         }
         return null;
     }
-
-    public static int getAsiakasID(){return asiakasID;}
 
 }

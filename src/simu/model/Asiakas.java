@@ -19,17 +19,19 @@ public class Asiakas {
 
     private static double sum = 0, sumA = 0, sumB = 0, sumC = 0;
     static int AsiakasA = 0, AsiakasB = 0, AsiakasC= 0;
+    static int i = 1;
 
     @Column(name ="tiski")
     private String tiski;
 
-    public Asiakas(){}
-    public Asiakas(int id){
-        this.id = id;
+    public Asiakas(){
+        this.id = i;
 
         saapumisaika = Kello.getInstance().getAika();
         Trace.out(Trace.Level.INFO, "Uusi asiakas:" + id + ":"+saapumisaika);
     }
+
+    public static int getMäärä() {return i;}
 
     public double getPoistumisaika() {
         return poistumisaika;
@@ -73,7 +75,7 @@ public class Asiakas {
 
     }
     public static void loppuTulokset(){
-        double keskiarvo =  OmaMoottori.round( sum/Vuoronumero.getAsiakasID(), 100.0);
+        double keskiarvo =  OmaMoottori.round( sum/i, 100.0);
         System.out.println("Asiakkaiden läpimenoaikojen keskiarvo "+ keskiarvo);
         System.out.println("Tiskillä A: " + OmaMoottori.round( sumA /AsiakasA, 100.0));
         System.out.println("Tiskillä B: " + OmaMoottori.round( sumB /AsiakasB, 100.0));
@@ -93,9 +95,6 @@ public class Asiakas {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public static double getSum() {
         return sum;
@@ -111,5 +110,16 @@ public class Asiakas {
 
     public static double getSumC() {
         return sumC;
+    }
+
+    public static void nollaaAsaikkaat(){
+        sum = 0;
+        sumA = 0;
+        sumB = 0;
+        sumC = 0;
+        i = 1;
+        AsiakasA = 0;
+        AsiakasB = 0;
+        AsiakasC = 0;
     }
 }

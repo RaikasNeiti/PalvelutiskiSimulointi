@@ -1,10 +1,10 @@
 package simu.model;
 
 public class Saie extends Thread{
-    OmaMoottori m;
+    IOmaMoottori m;
 
 
-    public Saie(OmaMoottori m){
+    public Saie(IOmaMoottori m){
         this.m = m;
 
     }

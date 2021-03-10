@@ -11,6 +11,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import simu.framework.Trace;
+import simu.model.IOmaMoottori;
+
 import simu.model.OmaMoottori;
 import simu.model.Saie;
 
@@ -20,7 +22,7 @@ import java.io.IOException;
 
 
 public class MainUI extends Application {
-    OmaMoottori m;
+    IOmaMoottori m;
     SimuControlsOverview simuControlsOverview;
     private BorderPane rootLayout;
     private Stage primaryStage;

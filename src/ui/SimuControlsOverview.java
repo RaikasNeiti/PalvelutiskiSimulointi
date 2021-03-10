@@ -3,12 +3,13 @@ package ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import simu.model.IOmaMoottori;
 import simu.model.OmaMoottori;
 
 public class SimuControlsOverview {
 
     MainUI main;
-    OmaMoottori m;
+    IOmaMoottori m;
     private double time;
     private boolean[] checkbox = new boolean[9];
 
@@ -77,7 +78,7 @@ public class SimuControlsOverview {
 
     }
 
-    public void setMainUI(MainUI main, OmaMoottori m){
+    public void setMainUI(MainUI main, IOmaMoottori m){
         this.m = m;
         this.main = main;
     }
@@ -96,7 +97,7 @@ public class SimuControlsOverview {
         double txtA_cp = Double.parseDouble(tiskiA3_PA.getText());
         double txtA_ch = Double.parseDouble(tiskiA3_HA.getText());
 
-        m.setTiskiA(cbA_a, txtA_ap, txtA_ah, cbA_b, txtA_bp, txtA_bh , cbA_c, txtA_cp, txtA_ch);
+        //m.setTiskiA(cbA_a, txtA_ap, txtA_ah, cbA_b, txtA_bp, txtA_bh , cbA_c, txtA_cp, txtA_ch);
     }
 
     public void getTiskiB(){
@@ -112,7 +113,7 @@ public class SimuControlsOverview {
         double txtB_cp = Double.parseDouble(tiskiB3_PA.getText());
         double txtB_ch = Double.parseDouble(tiskiB3_HA.getText());
 
-        m.setTiskiB(cbB_a, txtB_ap, txtB_ah, cbB_b, txtB_bp, txtB_bh , cbB_c, txtB_cp, txtB_ch);
+        //m.setTiskiB(cbB_a, txtB_ap, txtB_ah, cbB_b, txtB_bp, txtB_bh , cbB_c, txtB_cp, txtB_ch);
     }
 
     public void getTiskiC(){
@@ -128,7 +129,7 @@ public class SimuControlsOverview {
         double txtC_cp = Double.parseDouble(tiskiC3_PA.getText());
         double txtC_ch = Double.parseDouble(tiskiC3_HA.getText());
 
-        m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
+        //m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
     }
     public boolean[] getCheckbox(){
         checkbox[0] = tiskiA1_CB.isSelected();

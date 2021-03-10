@@ -21,6 +21,7 @@ public class Palvelupiste {
     private static int i = 0;
     private boolean aktiivinen;
     private Asiakas palveltava;
+
     private double inactive = 0;
     private double wentInactive;
 
@@ -94,6 +95,10 @@ public class Palvelupiste {
         else {
             return 100 *KokonaisPalveluAika/(Kello.getInstance().getAika() - inactive);
         }
+    }
+
+    public static void nollaa(){
+        i=0;
     }
 
 }
