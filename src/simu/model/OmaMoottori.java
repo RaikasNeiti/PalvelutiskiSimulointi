@@ -181,6 +181,7 @@ public class OmaMoottori extends Moottori {
     @Override
     protected void tulokset() {
         //System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
+
         System.out.println("Tulokset\n" +
                 "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta.\n" +
                 "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta.\n" +
@@ -297,6 +298,7 @@ public class OmaMoottori extends Moottori {
         else{
             pause = false;
         }
+        simu.closedown();
 
     }
 

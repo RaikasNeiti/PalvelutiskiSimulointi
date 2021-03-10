@@ -15,6 +15,7 @@ import simu.model.OmaMoottori;
 import simu.model.Saie;
 
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 
 
@@ -48,6 +49,9 @@ public class MainUI extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainUI.class.getResource("fxml/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
+            RootLayoutController rootlayout = loader.getController();
+            rootlayout.setMain(this);
+
 
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -75,6 +79,29 @@ public class MainUI extends Application {
         } catch (IOException e) {
             e.printStackTrace();
 
+        }
+
+    }
+
+    public void showDataController() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainUI.class.getResource("fxml/Data.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Statistics");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the persons into the controller.
+
+
+            dialogStage.show();
+        }
+        catch (IOException e){
+            e.printStackTrace();
         }
 
     }
