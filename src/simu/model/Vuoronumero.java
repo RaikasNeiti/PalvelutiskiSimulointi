@@ -2,8 +2,7 @@ package simu.model;
 
 
 public class Vuoronumero {
-    double a = 33.0;
-    double b = 60.0;
+
     private Palvelupiste[] palvelupisteet;
     private double hajontaA;
     private double hajontaB;

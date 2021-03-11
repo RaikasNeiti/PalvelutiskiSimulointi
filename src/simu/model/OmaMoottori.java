@@ -97,7 +97,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         dao = new DataAccessObject(this);
 
         saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
-        vuoro = new Vuoronumero(palvelupisteet, hajontaA, hajontaB);
+
     }
     public void setAnim(SimuAnimation simu){
         this.simu = simu;
@@ -113,6 +113,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         palvelupisteet[6] = new Palvelupiste(new Normal(palveluajat[6], hajonnat[6]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[6]);
         palvelupisteet[7] = new Palvelupiste(new Normal(palveluajat[7], hajonnat[7]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[7]);
         palvelupisteet[8] = new Palvelupiste(new Normal(palveluajat[8], hajonnat[8]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[8]);
+        vuoro = new Vuoronumero(palvelupisteet, hajontaA, hajontaB);
     }
     public void setSpeed(boolean muutos){
         if(muutos){
@@ -229,6 +230,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
             }
         }
         tallenaDatabaseen();
+        runLater(() -> simu.closedown());
 
     }
 
