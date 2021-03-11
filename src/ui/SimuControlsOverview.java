@@ -7,7 +7,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import simu.model.IOmaMoottori;
-import simu.model.OmaMoottori;
 
 public class SimuControlsOverview {
 
@@ -15,7 +14,7 @@ public class SimuControlsOverview {
     IOmaMoottori m;
     private double time;
     private boolean[] checkbox = new boolean[9];
-    private boolean jakaA = true, jakaB =true;
+    private boolean jakaumaTarkistus = true;
 
     @FXML
     private TextField jakaumaA;
@@ -104,10 +103,10 @@ public class SimuControlsOverview {
                     if(jakaumaA != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaB.getText()) >= 100){
                         System.out.println("ErrorA");
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
-                        jakaA = false;
+                        jakaumaTarkistus = false;
                     }else{
                         ErrorLabel.setText("");
-                        jakaA = true;
+                        jakaumaTarkistus = true;
                         jakaumaC.setText(Double.toString(100 - Double.parseDouble(jakaumaA.getText()) - Double.parseDouble(jakaumaB.getText())));
                     }
                 } catch (Exception e){
@@ -124,10 +123,10 @@ public class SimuControlsOverview {
                     if(jakaumaB != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaA.getText()) >= 100){
                         System.out.println("ErrorB");
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
-                        jakaA = false;
+                        jakaumaTarkistus = false;
                     } else {
                         ErrorLabel.setText("");
-                        jakaA = true;
+                        jakaumaTarkistus = true;
                         jakaumaC.setText(Double.toString(100 - Double.parseDouble(jakaumaA.getText()) - Double.parseDouble(jakaumaB.getText())));
                     }
                 }catch (Exception e){
@@ -241,7 +240,7 @@ public class SimuControlsOverview {
 
     @FXML
     private void handleStartButton(){
-        if(jakaA && jakaB){
+        if(jakaumaTarkistus){
             try {
                 getTiskiA();
                 getTiskiB();
