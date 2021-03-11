@@ -107,8 +107,8 @@ public class SimuControlsOverview {
                         jakaA = false;
                     }else{
                         ErrorLabel.setText("");
-                        jakaB = true;
-
+                        jakaA = true;
+                        jakaumaC.setText(Double.toString(100 - Double.parseDouble(jakaumaA.getText()) - Double.parseDouble(jakaumaB.getText())));
                     }
                 } catch (Exception e){
 
@@ -124,10 +124,11 @@ public class SimuControlsOverview {
                     if(jakaumaB != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaA.getText()) >= 100){
                         System.out.println("ErrorB");
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
-                        jakaB = false;
+                        jakaA = false;
                     } else {
                         ErrorLabel.setText("");
-                        jakaB = true;
+                        jakaA = true;
+                        jakaumaC.setText(Double.toString(100 - Double.parseDouble(jakaumaA.getText()) - Double.parseDouble(jakaumaB.getText())));
                     }
                 }catch (Exception e){
 
