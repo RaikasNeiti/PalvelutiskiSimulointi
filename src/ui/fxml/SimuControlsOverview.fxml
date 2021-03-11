@@ -116,6 +116,10 @@
             <TextField fx:id="jakaumaC" editable="false" text="34" GridPane.columnIndex="2" />
          </children>
       </GridPane>
-      <Label fx:id="ErrorLabel" layoutX="78.0" layoutY="325.0" prefHeight="17.0" prefWidth="306.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="78.0" />
+      <Label fx:id="ErrorLabel" layoutX="81.0" layoutY="300.0" prefHeight="17.0" prefWidth="306.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="81.0" />
+      <Label layoutX="85.0" layoutY="338.0" prefHeight="17.0" prefWidth="90.0" text="Tiski A" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="85.0" />
+      <Label layoutX="198.0" layoutY="338.0" prefHeight="17.0" prefWidth="71.0" text="TiskiB" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="198.0" />
+      <Label layoutX="294.0" layoutY="338.0" prefHeight="17.0" prefWidth="71.0" text="TiskiC" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="294.0" />
+      <Label fx:id="ErrorLabel1" layoutX="116.0" layoutY="317.0" prefHeight="17.0" prefWidth="306.0" text="Asiakkaiden jakauma tiskien välillä." AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="116.0" />
    </children>
 </AnchorPane>
