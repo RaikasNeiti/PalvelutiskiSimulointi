@@ -1,7 +1,10 @@
 package ui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import simu.model.IOmaMoottori;
 import simu.model.OmaMoottori;
@@ -12,6 +15,18 @@ public class SimuControlsOverview {
     IOmaMoottori m;
     private double time;
     private boolean[] checkbox = new boolean[9];
+    private boolean jakaA = true, jakaB =true;
+
+    @FXML
+    private TextField jakaumaA;
+    @FXML
+    private TextField jakaumaB;
+    @FXML
+    private TextField jakaumaC;
+
+    @FXML
+    private Label ErrorLabel;
+
 
     @FXML
     private TextField field;
@@ -78,10 +93,58 @@ public class SimuControlsOverview {
 
     }
 
+
+    @FXML
+    private void initialize(){
+        jakaumaA.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                System.out.println(t1);
+                try{
+                    if(jakaumaA != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaB.getText()) >= 100){
+                        System.out.println("ErrorA");
+                        ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
+                        jakaA = false;
+                    }else{
+                        ErrorLabel.setText("");
+                        jakaB = true;
+
+                    }
+                } catch (Exception e){
+
+                }
+
+            }
+        });
+        jakaumaB.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                System.out.println(t1);
+                try{
+                    if(jakaumaB != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaA.getText()) >= 100){
+                        System.out.println("ErrorB");
+                        ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
+                        jakaB = false;
+                    } else {
+                        ErrorLabel.setText("");
+                        jakaB = true;
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+    }
+
+
+
+
+
     public void setMainUI(MainUI main, IOmaMoottori m){
         this.m = m;
         this.main = main;
     }
+
 
     public void getTiskiA(){
 
@@ -177,26 +240,28 @@ public class SimuControlsOverview {
 
     @FXML
     private void handleStartButton(){
-        try {
-            getTiskiA();
-            getTiskiB();
-            getTiskiC();
+        if(jakaA && jakaB){
+            try {
+                getTiskiA();
+                getTiskiB();
+                getTiskiC();
 
-            m.setCheckbox(getCheckbox());
-            m.setPalveluajat(getPalveluajat());
-            m.setHajonnat(getHajonnat());
+                m.setCheckbox(getCheckbox());
+                m.setPalveluajat(getPalveluajat());
+                m.setHajonnat(getHajonnat());
+                m.setJakaumat(Double.parseDouble(jakaumaA.getText()), Double.parseDouble(jakaumaB.getText()));
 
-            System.out.println(tiskiA1_CB.isSelected());
-            time = Double.parseDouble(field.getText());
-
-            System.out.println(time);
-            main.SimuStart(time);
+                System.out.println(tiskiA1_CB.isSelected());
+                time = Double.parseDouble(field.getText());
 
 
-        } catch (NumberFormatException e) {
-            System.out.println("Not a number.");
+
+                System.out.println(time);
+                main.SimuStart(time);
+            } catch (NumberFormatException e) {
+                System.out.println("Not a number.");
+            }
         }
-
     }
 
 

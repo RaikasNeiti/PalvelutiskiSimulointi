@@ -101,18 +101,21 @@
             <Label text="Hajonta" GridPane.columnIndex="2" />
          </children>
       </GridPane>
-      <GridPane layoutX="118.0" layoutY="351.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="118.0">
+      <GridPane layoutX="78.0" layoutY="351.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="78.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField />
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="jakaumaA" text="33" />
+            <TextField fx:id="jakaumaB" text="33" GridPane.columnIndex="1" />
+            <TextField fx:id="jakaumaC" editable="false" text="34" GridPane.columnIndex="2" />
          </children>
       </GridPane>
+      <Label fx:id="ErrorLabel" layoutX="78.0" layoutY="325.0" prefHeight="17.0" prefWidth="306.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="78.0" />
    </children>
 </AnchorPane>

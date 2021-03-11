@@ -22,4 +22,6 @@ public interface IOmaMoottori {
     void setPalveluajat(double[] palveluajat);
 
     void setHajonnat(double[] hajonnat);
+
+    void setJakaumat(double hajontaA, double hajontaB);
 }

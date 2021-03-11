@@ -9,7 +9,6 @@ import simu.framework.Tapahtuma;
 import ui.SimuAnimation;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import static javafx.application.Platform.runLater;
 
@@ -55,9 +54,6 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     protected double jononKeskipituusA;
     protected double jononKeskipituusB;
     protected double jononKeskipituusC;
-
-
-
 
     private boolean cbA_a;
     private double txtA_ap;
@@ -356,7 +352,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         this.hajonnat = hajonnat;
     }
 
-    public void setHajonnat(double hajontaA, double hajontaB){
+    public void setJakaumat(double hajontaA, double hajontaB){
         this.hajontaA = hajontaA;
         this.hajontaB = hajontaB;
     }
