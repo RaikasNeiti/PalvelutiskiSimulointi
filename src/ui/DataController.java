@@ -72,16 +72,16 @@ public class DataController {
         } catch (SQLException e){
 
         }
-        String[] columns = {"AsiakkaidenMäärä","MääräA","MääräB","MääräC"};
+        String[] columns = {"Kaikki","Tiski A","Tiski B","Tiski C"};
         this.AsiakasList.addAll(Arrays.asList(columns));
         this.AsiakkaatxAxis.setCategories(this.AsiakasList);
-        String[] columns2 = {"Keskiaika","KeskiaikaA","KeskiaikaB","KeskiaikaC"};
+        String[] columns2 = {"Kaikki","Tiski A","Tiski B","Tiski C"};
         this.KeskiaikaList.addAll(Arrays.asList(columns2));
         this.KeskiaikaxAxis.setCategories(this.KeskiaikaList);
-        String[] columns3 = {"JononkeskipituusA","JononkeskipituusB","JononkeskipituusC"};
+        String[] columns3 = {"Tiski A","Tiski B","Tiski C"};
         this.jonoList.addAll(Arrays.asList(columns3));
         this.jonopituusxAxis.setCategories(this.jonoList);
-        String[] columns4 = {"Käyttöprosentti","KäyttöprosenttiA","KäyttöprosenttiB","KäyttöprosenttiC"};
+        String[] columns4 = {"Kaikki","Tiski A","Tiski B","Tiski C"};
         this.prosenttiList.addAll(Arrays.asList(columns4));
         this.prosenttixAxis.setCategories(this.prosenttiList);
 
@@ -149,27 +149,31 @@ public class DataController {
         }
 
         Series<String, Integer> series1 = new Series();
-        series1.getData().add(new Data("AsiakkaidenMäärä", maara));
-        series1.getData().add(new Data("MääräA", maaraA));
-        series1.getData().add(new Data("MääräB", maaraB));
-        series1.getData().add(new Data("MääräC", maaraC));
+        series1.getData().add(new Data("Kaikki", maara));
+        series1.getData().add(new Data("Tiski A", maaraA));
+        series1.getData().add(new Data("Tiski B", maaraB));
+        series1.getData().add(new Data("Tiski C", maaraC));
+        series1.setName("Asiakkaiden määrä");
         this.Asiakkaat.getData().add(series1);
         Series<String, Integer> series2 = new Series();
-        series2.getData().add(new Data("Keskiaika", keskiaika));
-        series2.getData().add(new Data("KeskiaikaA", keskiaikaA));
-        series2.getData().add(new Data("KeskiaikaB", keskiaikaB));
-        series2.getData().add(new Data("KeskiaikaC", keskiaikaC));
+        series2.getData().add(new Data("Kaikki", keskiaika));
+        series2.getData().add(new Data("Tiski A", keskiaikaA));
+        series2.getData().add(new Data("Tiski B", keskiaikaB));
+        series2.getData().add(new Data("Tiski C", keskiaikaC));
+        series2.setName("Asiakkaiden läpimenoaikojen keskiarvo");
         this.Keskiaika.getData().add(series2);
         Series<String, Integer> series3 = new Series();
-        series3.getData().add(new Data("JononkeskipituusA", jonopituusA));
-        series3.getData().add(new Data("JononkeskipituusB", jonopituusB));
-        series3.getData().add(new Data("JononkeskipituusC", jonopituusC));
+        series3.getData().add(new Data("Tiski A", jonopituusA));
+        series3.getData().add(new Data("Tiski B", jonopituusB));
+        series3.getData().add(new Data("Tiski C", jonopituusC));
+        series3.setName("Keskimääräiset jononpituudet");
         this.Jonopituus.getData().add(series3);
         Series<String, Integer> series4 = new Series();
-        series4.getData().add(new Data("Käyttöprosentti", prosentti));
-        series4.getData().add(new Data("KäyttöprosenttiA", prosenttiA));
-        series4.getData().add(new Data("KäyttöprosenttiB", prosenttiB));
-        series4.getData().add(new Data("KäyttöprosenttiC", prosenttiC));
+        series4.getData().add(new Data("Kaikki", prosentti));
+        series4.getData().add(new Data("Tiski A", prosenttiA));
+        series4.getData().add(new Data("Tiski B", prosenttiB));
+        series4.getData().add(new Data("Tiski C", prosenttiC));
+        series4.setName("Tiskien käyttöprosentti");
         this.Prosentti.getData().add(series4);
         aika.setText("Simulaation kesto: " + Double.toString(time));
     }
