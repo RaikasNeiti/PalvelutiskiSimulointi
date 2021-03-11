@@ -290,6 +290,12 @@ public class SimuAnimation {
         vuoronumero.setText(vuoronumero.getText() + vuoro + "\n");
         vuoronumero.setScrollTop(Double.MAX_VALUE);
     }
+
+    public void suljeVuoronumero(){
+        vuoronumero.setText(vuoronumero.getText() + "Vuoronumeroautomaatti suljettu" + "\n");
+        vuoronumero.setScrollTop(Double.MAX_VALUE);
+    }
+
     @FXML
     private void handleButtonPause(){
 

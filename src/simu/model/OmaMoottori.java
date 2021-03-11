@@ -32,6 +32,8 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     private boolean[] checkboxes;
     private double[] palveluajat;
     private double[] hajonnat;
+    private double hajontaA;
+    private double hajontaB;
 
     protected double jononAPituus = 0;
     protected double jononBPituus = 0;
@@ -99,7 +101,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         dao = new DataAccessObject(this);
 
         saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
-        vuoro = new Vuoronumero(palvelupisteet);
+        vuoro = new Vuoronumero(palvelupisteet, hajontaA, hajontaB);
     }
     public void setAnim(SimuAnimation simu){
         this.simu = simu;
@@ -162,28 +164,20 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
             case ARR1:
                 if (auki) {
-                    simu.setSaapui();
+                    runLater(() ->  simu.setSaapui());
                     vuorossajonoon = vuoro.uusiAskiakas();
                     saapumisprosessi.generoiSeuraava();
-                    break;
                 }
-                else{
-                    break;
-                }
+                break;
             case TISKI1:
             case TISKI2:
             case TISKI3:
-                try{
-                    a = palvelupisteet[t.getPalvelija()].otaJonosta();
-                    a.setPoistumisaika(Kello.getInstance().getAika());
-                    a.raportti();
-                    simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski());
-                    dAika = kello.getAika();
-                    break;
-                } catch(Exception e){
-                    e.printStackTrace();
-                }
-
+                a = palvelupisteet[t.getPalvelija()].otaJonosta();
+                a.setPoistumisaika(Kello.getInstance().getAika());
+                a.raportti();
+                runLater(() -> simu.SetConsole(a.getId(), a.getPoistumisaika(), a.getTiski()));
+                dAika = kello.getAika();
+                break;
         }
 
         if(auki) {
@@ -192,10 +186,6 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
             jononCPituus += (kello.getAika() - dAika) * jonoC.size();
             dAika = kello.getAika();
         }
-
-
-
-
 
     }
 
@@ -243,13 +233,13 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
             }
         }
         tallenaDatabaseen();
-        runLater(() -> simu.closedown());
 
     }
 
     public void suljeVuoronumero() {
         auki = false;
         kelloSuljettu = kello.getAika();
+        runLater(() -> simu.suljeVuoronumero());
 
     }
 
@@ -263,13 +253,13 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         jonot[1] = jonoB.size();
         System.out.println("Jonon C pituus: " + jonoC.size());
         jonot[2] = jonoC.size();
-        simu.UpdateJonot(jonot);
+        runLater(() -> simu.UpdateJonot(jonot));
         for (int i = 0; i < 9; i++ ){
             varattu[i] = palvelupisteet[i].onVarattu();
             aktiivinen[i] = palvelupisteet[i].onAktiivinen();
         }
-        simu.UpdateTiskit(varattu, aktiivinen);
-        simu.UpdateVuoronumero(vuorossajonoon);
+        runLater(() -> simu.UpdateTiskit(varattu, aktiivinen));
+        runLater(() -> simu.UpdateVuoronumero(vuorossajonoon));
 
 
     }
@@ -321,7 +311,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         else{
             pause = false;
         }
-
+        simu.closedown();
 
     }
 
@@ -364,5 +354,10 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     public void setHajonnat(double[] hajonnat) {
         this.hajonnat = hajonnat;
+    }
+
+    public void setHajonnat(double hajontaA, double hajontaB){
+        this.hajontaA = hajontaA;
+        this.hajontaB = hajontaB;
     }
 }
