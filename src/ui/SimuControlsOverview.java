@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import simu.model.IOmaMoottori;
 
 public class SimuControlsOverview {
@@ -102,6 +103,7 @@ public class SimuControlsOverview {
                 try{
                     if(jakaumaA != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaB.getText()) >= 100){
                         System.out.println("ErrorA");
+                        ErrorLabel.setTextFill(Color.web("#FF0000"));
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
                         jakaumaTarkistus = false;
                     }else{
@@ -122,6 +124,7 @@ public class SimuControlsOverview {
                 try{
                     if(jakaumaB != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaA.getText()) >= 100){
                         System.out.println("ErrorB");
+                        ErrorLabel.setTextFill(Color.web("#FF0000"));
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
                         jakaumaTarkistus = false;
                     } else {
