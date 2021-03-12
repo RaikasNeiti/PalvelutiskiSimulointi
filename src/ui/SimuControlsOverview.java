@@ -99,10 +99,8 @@ public class SimuControlsOverview {
         jakaumaA.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                System.out.println(t1);
                 try{
                     if(jakaumaA != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaB.getText()) >= 100){
-                        System.out.println("ErrorA");
                         ErrorLabel.setTextFill(Color.web("#FF0000"));
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
                         jakaumaTarkistus = false;
@@ -120,10 +118,8 @@ public class SimuControlsOverview {
         jakaumaB.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                System.out.println(t1);
                 try{
                     if(jakaumaB != null && Double.parseDouble(t1) + Double.parseDouble(jakaumaA.getText()) >= 100){
-                        System.out.println("ErrorB");
                         ErrorLabel.setTextFill(Color.web("#FF0000"));
                         ErrorLabel.setText("Jakaumien summa ei voi olla yli 100");
                         jakaumaTarkistus = false;

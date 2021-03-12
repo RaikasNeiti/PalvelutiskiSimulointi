@@ -309,7 +309,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         else{
             pause = false;
         }
-        simu.closedown();
+
 
     }
 
