@@ -53,6 +53,14 @@ public abstract class Moottori{
             suoritaBTapahtumat();
             yritaCTapahtumat();
             runLater(() -> UpdateUi());
+            try{
+                Thread.sleep(getSpeed());
+                while(getPause()){
+                    Thread.sleep(500);
+                }
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
         }
 
         tulokset();

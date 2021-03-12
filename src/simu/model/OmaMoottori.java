@@ -257,8 +257,9 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
             aktiivinen[i] = palvelupisteet[i].onAktiivinen();
         }
         runLater(() -> simu.UpdateTiskit(varattu, aktiivinen));
-        runLater(() -> simu.UpdateVuoronumero(vuorossajonoon));
-
+        if(auki) {
+            runLater(() -> simu.UpdateVuoronumero(vuorossajonoon));
+        }
 
     }
 
