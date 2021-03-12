@@ -292,7 +292,7 @@ public class SimuAnimation {
     }
 
     public void suljeVuoronumero(){
-        vuoronumero.setText(vuoronumero.getText() + "Vuoronumeroautomaatti suljettu" + "\n");
+        vuoronumero.setText(vuoronumero.getText() + "Suljettu" + "\n");
         vuoronumero.setScrollTop(Double.MAX_VALUE);
     }
 
