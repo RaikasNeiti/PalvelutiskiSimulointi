@@ -33,6 +33,8 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     private double[] hajonnat;
     private double hajontaA;
     private double hajontaB;
+    private long saapumisväliaika;
+    private long saapumishajonta;
 
     protected double jononAPituus = 0;
     protected double jononBPituus = 0;
@@ -54,6 +56,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     protected double jononKeskipituusA;
     protected double jononKeskipituusB;
     protected double jononKeskipituusC;
+
 
     private boolean cbA_a;
     private double txtA_ap;
@@ -96,7 +99,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         jonoC = new LinkedList<>();
         dao = new DataAccessObject(this);
 
-        saapumisprosessi = new Saapumisprosessi(new Negexp(5, 2), tapahtumalista, TapahtumanTyyppi.ARR1);
+
 
     }
     public void setAnim(SimuAnimation simu){
@@ -114,6 +117,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         palvelupisteet[7] = new Palvelupiste(new Normal(palveluajat[7], hajonnat[7]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[7]);
         palvelupisteet[8] = new Palvelupiste(new Normal(palveluajat[8], hajonnat[8]), tapahtumalista, TapahtumanTyyppi.TISKI3, jonoC, checkboxes[8]);
         vuoro = new Vuoronumero(palvelupisteet, hajontaA, hajontaB);
+        saapumisprosessi = new Saapumisprosessi(new Negexp(saapumisväliaika, saapumishajonta), tapahtumalista, TapahtumanTyyppi.ARR1);
     }
     public void setSpeed(boolean muutos){
         if(muutos){
@@ -358,5 +362,10 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     public void setJakaumat(double hajontaA, double hajontaB){
         this.hajontaA = hajontaA;
         this.hajontaB = hajontaB;
+    }
+
+    public void setSaapumistiheys(long saapumisväliaika, long saapumishajonta){
+        this.saapumisväliaika = saapumisväliaika;
+        this.saapumishajonta = saapumishajonta;
     }
 }
