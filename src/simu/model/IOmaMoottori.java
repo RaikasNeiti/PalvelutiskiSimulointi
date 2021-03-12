@@ -24,4 +24,6 @@ public interface IOmaMoottori {
     void setHajonnat(double[] hajonnat);
 
     void setJakaumat(double hajontaA, double hajontaB);
+
+    void setSaapumistiheys(long parseLong, long parseLong1);
 }

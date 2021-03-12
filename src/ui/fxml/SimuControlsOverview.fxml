@@ -121,5 +121,21 @@
       <Label layoutX="198.0" layoutY="338.0" prefHeight="17.0" prefWidth="71.0" text="TiskiB" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="198.0" />
       <Label layoutX="294.0" layoutY="338.0" prefHeight="17.0" prefWidth="71.0" text="TiskiC" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="294.0" />
       <Label fx:id="ErrorLabel1" layoutX="116.0" layoutY="317.0" prefHeight="17.0" prefWidth="306.0" text="Asiakkaiden jakauma tiskien välillä." AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="116.0" />
+      <GridPane layoutX="390.0" layoutY="279.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="390.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="asiakaskeskiarvo" text="5" />
+            <TextField fx:id="asiakashajonta" text="2" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Label layoutX="413.0" layoutY="245.0" prefHeight="17.0" prefWidth="163.0" text="Asiakkaiden saapumis tiheys" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="415.0" />
+      <Label layoutX="403.0" layoutY="260.0" prefHeight="17.0" prefWidth="71.0" text="Keskiarvo" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="403.0" />
+      <Label layoutX="495.0" layoutY="260.0" prefHeight="17.0" prefWidth="90.0" text="Hajonta" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="495.0" />
    </children>
 </AnchorPane>

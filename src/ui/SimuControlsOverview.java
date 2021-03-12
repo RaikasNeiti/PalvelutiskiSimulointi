@@ -17,6 +17,11 @@ public class SimuControlsOverview {
     private boolean[] checkbox = new boolean[9];
     private boolean jakaumaTarkistus = true;
 
+
+    @FXML
+    private TextField asiakaskeskiarvo;
+    @FXML
+    private TextField asiakashajonta;
     @FXML
     private TextField jakaumaA;
     @FXML
@@ -249,7 +254,7 @@ public class SimuControlsOverview {
                 m.setPalveluajat(getPalveluajat());
                 m.setHajonnat(getHajonnat());
                 m.setJakaumat(Double.parseDouble(jakaumaA.getText()), Double.parseDouble(jakaumaB.getText()));
-
+                m.setSaapumistiheys(Long.parseLong(asiakaskeskiarvo.getText()), Long.parseLong(asiakashajonta.getText()));
                 System.out.println(tiskiA1_CB.isSelected());
                 time = Double.parseDouble(field.getText());
 
