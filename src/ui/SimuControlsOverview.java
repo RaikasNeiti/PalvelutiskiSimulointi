@@ -254,7 +254,7 @@ public class SimuControlsOverview {
                 m.setPalveluajat(getPalveluajat());
                 m.setHajonnat(getHajonnat());
                 m.setJakaumat(Double.parseDouble(jakaumaA.getText()), Double.parseDouble(jakaumaB.getText()));
-                m.setSaapumistiheys(Long.parseLong(asiakaskeskiarvo.getText()), Long.parseLong(asiakashajonta.getText()));
+                m.setSaapumistiheys((long) Double.parseDouble(asiakaskeskiarvo.getText()), (long) Double.parseDouble(asiakashajonta.getText()));
                 System.out.println(tiskiA1_CB.isSelected());
                 time = Double.parseDouble(field.getText());
 
