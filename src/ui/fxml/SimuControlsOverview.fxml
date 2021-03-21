@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.SimuControlsOverview">
    <children>
       <ButtonBar layoutX="403.0" layoutY="346.0" prefHeight="40.0" prefWidth="183.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
@@ -134,7 +136,7 @@
             <TextField fx:id="asiakashajonta" text="2" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="413.0" layoutY="245.0" prefHeight="17.0" prefWidth="163.0" text="Asiakkaiden saapumis tiheys" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="415.0" />
+      <Label layoutX="413.0" layoutY="245.0" prefHeight="17.0" prefWidth="163.0" text="Asiakkaiden saapumistiheys" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="415.0" />
       <Label layoutX="403.0" layoutY="260.0" prefHeight="17.0" prefWidth="71.0" text="Keskiarvo" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="403.0" />
       <Label layoutX="495.0" layoutY="260.0" prefHeight="17.0" prefWidth="90.0" text="Hajonta" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="495.0" />
    </children>

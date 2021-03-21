@@ -1,5 +1,11 @@
 package simu.model;
 
+/**
+ * Luokan tarkoituksena on luoda vuoronumeroautomaatti ja antaa asiakkaille vuoronumero ja mille tiskille he menevät.
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
 
 public class Vuoronumero {
 
@@ -7,6 +13,13 @@ public class Vuoronumero {
     private double hajontaA;
     private double hajontaB;
 
+    /**
+     * luo vuoronumeroautomaatin.
+     *
+     * @param palvelupisteet palvelupisteet.
+     * @param hajontaA Hajonta A
+     * @param hajontaB Hajonta B
+     */
     public Vuoronumero(Palvelupiste[] palvelupisteet, double hajontaA, double hajontaB){
         this.palvelupisteet = palvelupisteet;
         this.hajontaA = hajontaA;
@@ -14,6 +27,9 @@ public class Vuoronumero {
 
     }
 
+    /**
+     * @return Mille tiskille uusi asiakas menee, joko Tiski A, Tiski B, Tiski C.
+     */
     public String uusiAskiakas(){
         double rand = (Math.random() * 100);
         Asiakas asiakas = new Asiakas();

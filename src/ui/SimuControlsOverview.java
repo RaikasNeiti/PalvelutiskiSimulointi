@@ -8,6 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import simu.model.IOmaMoottori;
+/**
+ * Luokka controlloi pääsimulaattorin UI:tä
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
 
 public class SimuControlsOverview {
 
@@ -36,6 +42,10 @@ public class SimuControlsOverview {
     @FXML
     private TextField field;
 
+    /**
+     * PA = palveluaika.
+     * HA = palveluajan hajonta.
+     */
     @FXML
     private CheckBox tiskiA1_CB;
     @FXML
@@ -99,6 +109,9 @@ public class SimuControlsOverview {
     }
 
 
+    /**
+     * initialize javafx listenereitä.
+     */
     @FXML
     private void initialize(){
         jakaumaA.textProperty().addListener(new ChangeListener<String>() {
@@ -141,15 +154,21 @@ public class SimuControlsOverview {
     }
 
 
-
-
-
+    /**
+     * Tuodaan luokat MainUI ja IOmamoottrin tähän luokkaan käytettäväksi.
+     *
+     * @param main MainUi luokka
+     * @param m IOmamoottori luokka
+     */
     public void setMainUI(MainUI main, IOmaMoottori m){
         this.m = m;
         this.main = main;
     }
 
 
+    /**
+     * Otetaan talteen kaikki tiskin A asetukset.
+     */
     public void getTiskiA(){
 
         boolean cbA_a = tiskiA1_CB.isSelected();
@@ -163,10 +182,11 @@ public class SimuControlsOverview {
         boolean cbA_c = tiskiA3_CB.isSelected();
         double txtA_cp = Double.parseDouble(tiskiA3_PA.getText());
         double txtA_ch = Double.parseDouble(tiskiA3_HA.getText());
-
-        //m.setTiskiA(cbA_a, txtA_ap, txtA_ah, cbA_b, txtA_bp, txtA_bh , cbA_c, txtA_cp, txtA_ch);
     }
 
+    /**
+     * Otetaan talteen kaikki tiskin B asetukset.
+     */
     public void getTiskiB(){
         boolean cbB_a = tiskiB1_CB.isSelected();
         double txtB_ap = Double.parseDouble(tiskiB1_PA.getText());
@@ -179,10 +199,10 @@ public class SimuControlsOverview {
         boolean cbB_c = tiskiB3_CB.isSelected();
         double txtB_cp = Double.parseDouble(tiskiB3_PA.getText());
         double txtB_ch = Double.parseDouble(tiskiB3_HA.getText());
-
-        //m.setTiskiB(cbB_a, txtB_ap, txtB_ah, cbB_b, txtB_bp, txtB_bh , cbB_c, txtB_cp, txtB_ch);
     }
-
+    /**
+     * Otetaan talteen kaikki tiskin C asetukset.
+     */
     public void getTiskiC(){
         boolean cbC_a = tiskiC1_CB.isSelected();
         double txtC_ap = Double.parseDouble(tiskiC1_PA.getText());
@@ -195,9 +215,11 @@ public class SimuControlsOverview {
         boolean cbC_c = tiskiC3_CB.isSelected();
         double txtC_cp = Double.parseDouble(tiskiC3_PA.getText());
         double txtC_ch = Double.parseDouble(tiskiC3_HA.getText());
-
-        //m.setTiskiC(cbC_a, txtC_ap, txtC_ah, cbC_b, txtC_bp, txtC_bh , cbC_c, txtC_cp, txtC_ch);
     }
+
+    /**
+     * @return palautetaan booleon array josta löytyy kaikkien tiskien ovatko ne päällä.
+     */
     public boolean[] getCheckbox(){
         checkbox[0] = tiskiA1_CB.isSelected();
         checkbox[1] = tiskiA2_CB.isSelected();
@@ -212,6 +234,9 @@ public class SimuControlsOverview {
         return checkbox;
     }
 
+    /**
+     * @return palautetaan double array josta löytyy jokaisen tiskin palveluajat.
+     */
     public double[] getPalveluajat(){
         double[] palveluajat = new double[9];
         palveluajat[0] = Double.parseDouble(tiskiA1_PA.getText());
@@ -226,6 +251,9 @@ public class SimuControlsOverview {
         return palveluajat;
     }
 
+    /**
+     * @return palautetaan double array josta löytyy jokaisen tiskin hajonnat
+     */
     public double[] getHajonnat(){
         double[] hajonnat = new double[9];
         hajonnat[0] = Double.parseDouble(tiskiA1_HA.getText());
@@ -242,6 +270,9 @@ public class SimuControlsOverview {
     }
 
 
+    /**
+     * Aloitetaan simulaattori jos jakaumatarkistus menee läpi.
+     */
     @FXML
     private void handleStartButton(){
         if(jakaumaTarkistus){
@@ -269,6 +300,9 @@ public class SimuControlsOverview {
     }
 
 
+    /**
+     * Sammuttaa ohjelman
+     */
     @FXML
     private void handleStopButton(){
         try{
@@ -276,10 +310,6 @@ public class SimuControlsOverview {
         } catch (Exception e){
             System.out.println("Virhe");
         }
-    }
-
-    public void handle(long now){
-
     }
 
 }

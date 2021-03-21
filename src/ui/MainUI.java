@@ -20,6 +20,15 @@ import simu.model.Saie;
 import javax.xml.crypto.Data;
 import java.io.IOException;
 
+/**
+ * Luokka kutsuu jokaista Ui elementtiä.
+ * ja availee niitä sen mukaan.
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
+
+
 
 public class MainUI extends Application {
     IOmaMoottori m;
@@ -28,13 +37,19 @@ public class MainUI extends Application {
     private Stage primaryStage;
 
 
+    /**
+     * Start.
+     *
+     * @param primaryStage primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Trace.setTraceLevel(Trace.Level.INFO);
         m = new OmaMoottori();
 
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Testi");
+        this.primaryStage.setTitle("Simulaattori Projekti");
 
         //initUI(stage);
         initRootLayout();
@@ -45,7 +60,9 @@ public class MainUI extends Application {
     }
 
 
-
+    /**
+     * Avaa alku ruudun kun sovellus käynnistetään.
+     */
     public void initRootLayout(){
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -66,6 +83,9 @@ public class MainUI extends Application {
 
     }
 
+    /**
+     * Avaa simulaattorin.
+     */
     public void showSimuControls() {
         try {
 
@@ -85,6 +105,9 @@ public class MainUI extends Application {
 
     }
 
+    /**
+     * Avaa DataBasen
+     */
     public void showDataController() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -110,6 +133,12 @@ public class MainUI extends Application {
         }
 
     }
+
+    /**
+     * Metodi aloittaa simulaattorin.
+     *
+     * @param time On kuinka kauan simulaattori on käynnissä.
+     */
     public void SimuStart(double time){
         try {
 

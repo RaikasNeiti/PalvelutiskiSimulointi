@@ -12,6 +12,13 @@ import javafx.stage.Stage;
 import simu.model.IOmaMoottori;
 import simu.model.OmaMoottori;
 
+/**
+ * Tämä luokka hoitaa kaikki simulaattorin ui tapahtuvat animaatiot, että lopuksi sammuttaa ui ja kutsuu sen jälkeen datacontrolleria.
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
+
 public class SimuAnimation {
     MainUI main;
     private boolean pause = false;
@@ -92,13 +99,22 @@ public class SimuAnimation {
     private ImageView TiskiCJono5;
 
 
-
-
+    /**
+     * Tuodaan luokat MainUI ja IOmamoottrin tähän luokkaan käytettäväksi.
+     *
+     * @param main MainUI luokka
+     * @param m IOmamoottori luokka
+     */
     public void setMainUI(MainUI main, IOmaMoottori m){
         this.m = m;
         this.main = main;
         m.setAnim(this);
     }
+
+    /**
+     *
+     * @param check booleon taulu josta löytyy tiedot mitkä tiskit ovat auki ja mitkä kiinni simulaattorin käynnistyksessä. ja esittää ne oikein UI:ssä.
+     */
     public void setCheckbox(boolean[] check){
 
         if(check[0] == true){
@@ -139,11 +155,23 @@ public class SimuAnimation {
         }
 
     }
+
+    /**
+     * Printtaa Textfieldiin kun asaiakas poistuu jonosta. ja siitä hieman tietoa.
+     *
+     * @param id Asiakas numero
+     * @param poistumisaika Poistumisaika
+     * @param tiski Mitä tiskiä käytettiin.
+     */
     public void SetConsole(int id, double poistumisaika, String tiski){
         console.setText(console.getText() + "Asiakas: "+ id +" Poistui tiskiltä "+ tiski.substring(5,6) + "\nKello " + poistumisaika + "\n");
         console.selectEnd();
         console.deselect();
     }
+
+    /**
+     * Printtaa Textfieldiin kun asiakas saapuu jonoon.
+     */
     public void setSaapui(){
         console.setText(console.getText()+"Asiakas " + saapumisid++ + " saapui jonoon \n");
         console.selectEnd();
@@ -151,6 +179,11 @@ public class SimuAnimation {
     }
 
 
+    /**
+     * Päivittää UI:sseen jonojen pituutta ja animoi niitä kuvan vaihdoilla.
+     *
+     * @param jonot on jokaisen tiskin jonojen pituudet int taulustassä.
+     */
     public void UpdateJonot(int[] jonot){
 
         if(jonot[0] >= 1){ TiskiAJono1.setImage(harmaa); }
@@ -211,6 +244,13 @@ public class SimuAnimation {
         else{ tiskiCjono.setText(""); }
 
     }
+
+    /**
+     * Päivittää ovatko tiskit varattua ja mitkä tiskit ovat käytössä eli aktiivisia.
+     *
+     * @param varattu booleon Tiski on varattu.
+     * @param aktiivinen booleon Tiski on aktiivinen.
+     */
     public void UpdateTiskit(boolean[] varattu, boolean[] aktiivinen){
 
         if(!aktiivinen[0]){
@@ -285,17 +325,27 @@ public class SimuAnimation {
             button_C_c.setImage(vihree);
         }
     }
+
+    /**
+     * @param vuoro minne tiskille asiakas meni.
+     */
     public void UpdateVuoronumero(String vuoro){
 
         vuoronumero.setText(vuoronumero.getText() + vuoro + "\n");
         vuoronumero.setScrollTop(Double.MAX_VALUE);
     }
 
+    /**
+     * Printtaa textfieldiin, että vuoronumeroautomaatti suljettu.
+     */
     public void suljeVuoronumero(){
         vuoronumero.setText(vuoronumero.getText() + "Suljettu" + "\n");
         vuoronumero.setScrollTop(Double.MAX_VALUE);
     }
 
+    /**
+     * Kuuntelee jos nappia Pause painetaan ja tulostaa sen mukaan textfieldiin joko resumed tai paused.
+     */
     @FXML
     private void handleButtonPause(){
 
@@ -314,6 +364,10 @@ public class SimuAnimation {
 
 
     }
+
+    /**
+     * Metodi sulkee ui:n ja aukaisee ShowdataController Ui.
+     */
     @FXML
     public void closedown(){
         Stage stage = (Stage) button_A_a.getScene().getWindow();
@@ -322,6 +376,9 @@ public class SimuAnimation {
     }
 
 
+    /**
+     * Metodi nopeuttaa simulaattori.
+     */
     @FXML
     private void handleSpeedUp(){
         m.setSpeed(true);
@@ -329,6 +386,9 @@ public class SimuAnimation {
         console.selectEnd();
         console.deselect();
     }
+    /**
+     * Metodi hidastaa simulaattori.
+     */
     @FXML
     private void handleSlowDown(){
         m.setSpeed(false);
@@ -336,6 +396,7 @@ public class SimuAnimation {
         console.selectEnd();
         console.deselect();
     }
+
 
 
     @FXML

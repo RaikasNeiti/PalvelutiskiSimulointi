@@ -16,6 +16,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 
+/**
+ * Datacontolleri hoitaa kaikki tarvittavat  UI elementit kun halutaan esittää Dataa.
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
+
 public class DataController {
 
     @FXML
@@ -62,8 +69,14 @@ public class DataController {
     private ObservableList<String> jonoList = FXCollections.observableArrayList();
     private ObservableList<String> prosenttiList = FXCollections.observableArrayList();
 
+    /**
+     * Luodaan dao joka on DataAccessObject.
+     */
     public DataController(){ dao = new DataAccessObject(); }
 
+    /**
+     * Otetaan viimeisin tieto databasesistä ja tehdään valmiiksi barcahrtit että observablelistit.
+     */
     @FXML
     private void initialize(){
         try{
@@ -89,6 +102,10 @@ public class DataController {
 
 
     }
+
+    /**
+     * Avataan edellinen database.
+     */
     @FXML
     private void handlePrevious(){
         try{
@@ -102,6 +119,10 @@ public class DataController {
         }
 
     }
+
+    /**
+     * Avataan seuraava database.
+     */
     @FXML
     private void handleNext(){
         try{
@@ -116,6 +137,10 @@ public class DataController {
         }
 
     }
+
+    /**
+     * Poistatetaan tiedot barcharteistä
+     */
     public void nullData(){
         this.Asiakkaat.getData().clear();
         this.Keskiaika.getData().clear();
@@ -124,7 +149,9 @@ public class DataController {
     }
 
 
-
+    /**
+     * Luodaan barchartit.
+     */
     public void setData(){
         try{
             maara = rs.getInt(3);

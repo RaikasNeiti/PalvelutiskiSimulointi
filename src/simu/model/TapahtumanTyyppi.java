@@ -1,7 +1,10 @@
 package simu.model;
+/**
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
 
-// TODO:
-// Tapahtumien tyypit määritellään simulointimallin vaatimusten perusteella
 public enum TapahtumanTyyppi {
     ARR1,
     TISKI1,
