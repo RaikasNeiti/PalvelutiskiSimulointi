@@ -2,7 +2,12 @@ package simu.model;
 
 
 import java.sql.*;
-
+/**
+ * Tietokannan käsittelyssä käytettävä luokka
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
 
 
 public class DataAccessObject {
@@ -13,6 +18,9 @@ public class DataAccessObject {
     OmaMoottori m;
 
 
+    /**
+     * Luo yhteyden tietokantaan
+     */
     public DataAccessObject() {
         try {
             connection = DriverManager.getConnection("jdbc:mariadb://localhost/FJData?user=olso&password=olso");
@@ -24,6 +32,9 @@ public class DataAccessObject {
             System.exit(-1);
         }
     }
+    /**
+     * Luo yhteyden tietokantaan
+     */
     public DataAccessObject(OmaMoottori m) {
         this.m = m;
         try {
@@ -37,6 +48,10 @@ public class DataAccessObject {
         }
     }
 
+    /**
+     * Lisää simulaation tulokset tietokantaan
+     * @return Virheentarkitus tieetokantaan lisääämisessä
+     */
     public boolean lisääTulokset(){
         try {
             statement = connection.createStatement();
@@ -55,6 +70,10 @@ public class DataAccessObject {
         }
     }
 
+    /**
+     * Hakee tulokset tietokannasta
+     * @return tietokannasta haetut tulokset
+     */
     public ResultSet getRs() {
         try{
         statement = connection.createStatement();

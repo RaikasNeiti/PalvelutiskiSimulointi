@@ -12,10 +12,15 @@ import java.util.LinkedList;
 
 import static javafx.application.Platform.runLater;
 
-
+/**
+ * Simulaation läpiviemiseen käytettävä luokka
+ *
+ * @author Joni Tahvanainen ja Felix Uimonen
+ * @version 1
+ */
 public class OmaMoottori extends Moottori implements IOmaMoottori{
-    DataAccessObject dao;
-    SimuAnimation simu;
+    private DataAccessObject dao;
+    private SimuAnimation simu;
     private String vuorossajonoon;
     private Saapumisprosessi saapumisprosessi;
     private Vuoronumero vuoro;
@@ -23,7 +28,7 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     private LinkedList<Asiakas> jonoA;
     private LinkedList<Asiakas> jonoB;
     private LinkedList<Asiakas> jonoC;
-    private SimuAnimation anim;
+
     private double dAika = 0;
     private boolean auki = true;
     private double speed = 500;
@@ -57,37 +62,6 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     protected double jononKeskipituusB;
     protected double jononKeskipituusC;
 
-
-    private boolean cbA_a;
-    private double txtA_ap;
-    private double txtA_ah;
-    private boolean cbA_b;
-    private double txtA_bp;
-    private double txtA_bh;
-    private boolean cbA_c;
-    private double txtA_cp;
-    private double txtA_ch;
-
-    private boolean cbB_a;
-    private double txtB_ap;
-    private double txtB_ah;
-    private boolean cbB_b;
-    private double txtB_bp;
-    private double txtB_bh;
-    private boolean cbB_c;
-    private double txtB_cp;
-    private double txtB_ch;
-
-    private boolean cbC_a;
-    private double txtC_ap;
-    private double txtC_ah;
-    private boolean cbC_b;
-    private double txtC_bp;
-    private double txtC_bh;
-    private boolean cbC_c;
-    private double txtC_cp;
-    private double txtC_ch;
-
     private boolean pause = false;
 
     public OmaMoottori() {
@@ -102,10 +76,18 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
 
     }
+
+    /**
+     * Simullattorin UI:n controllerin asetaaminen
+     * @param simu Simullation UI:n kontrolleri
+     */
     public void setAnim(SimuAnimation simu){
         this.simu = simu;
     }
 
+    /**
+     * Luo Simulaatiossa käytettävien palvelupisteiden ja saapumisprosessin luonti
+     */
     public void alustaTiskit(){
         palvelupisteet[0] = new Palvelupiste(new Normal(palveluajat[0], hajonnat[0]), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, checkboxes[0]);
         palvelupisteet[1] = new Palvelupiste(new Normal(palveluajat[1], hajonnat[1]), tapahtumalista, TapahtumanTyyppi.TISKI1, jonoA, checkboxes[1]);
@@ -119,6 +101,11 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         vuoro = new Vuoronumero(palvelupisteet, hajontaA, hajontaB);
         saapumisprosessi = new Saapumisprosessi(new Negexp(saapumisväliaika, saapumishajonta), tapahtumalista, TapahtumanTyyppi.ARR1);
     }
+
+    /**
+     * Muuttaa simulaation läpikäymisnopeutta
+     * @param muutos Simullaation nopuden muutos suunta
+     */
     public void setSpeed(boolean muutos){
         if(muutos){
             speed = speed * 0.9;
@@ -129,16 +116,20 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     }
 
+    /**
+     * paluttaa simulaation kierrosten välisen viiveen
+     * @return viiveen pituus
+     */
     public int getSpeed(){
         return (int) speed;
     }
 
-  
 
-
+    /**
+     *  Simulaation nollaus ja uuden simulaation käynnistys
+     */
     @Override
     protected void alustukset() {
-        //alustukset
         auki = true;
         kello.setAika(0);
         jonoA.clear();
@@ -157,6 +148,10 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
         saapumisprosessi.generoiSeuraava(); // Ensimmäinen saapuminen järjestelmään
     }
 
+    /**
+     * Tapahtuman käsittely ja sen seuraukset
+     * @param t Käsiteltävä tapahtuma
+     */
     @Override
     protected void suoritaTapahtuma(Tapahtuma t) {  // B-vaiheen tapahtumat
 
@@ -191,6 +186,9 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     }
 
 
+    /**
+     * Simulaation tuloksien käsittelyä
+     */
     @Override
     protected void tulokset() {
         //System.out.println("Simulointi päättyi kello " + Kello.getInstance().getAika());
@@ -199,7 +197,6 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
                 "Tiskillä A: " + Asiakas.getAsiakasA() + " asiakasta.\n" +
                 "Tiskillä B: " + Asiakas.getAsiakasB() + " asiakasta.\n" +
                 "Tiskillä C: " + Asiakas.getAsiakasC() + " asiakasta.\n");
-        Asiakas.loppuTulokset();
         for (Palvelupiste p : palvelupisteet) {
             System.out.println("Käyttössäoloprosentti " + "palvelupiste " + p.getId() + " " + round(p.kaytossaoloProsentti(), 100));
         }
@@ -238,6 +235,9 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     }
 
+    /**
+     * Vuoronumeroautomaatin sulkeminen simulasatioajan päätyttyä
+     */
     public void suljeVuoronumero() {
         auki = false;
         kelloSuljettu = kello.getAika();
@@ -245,6 +245,9 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     }
 
+    /**
+     * UI:n päivittäminen
+     */
     public void UpdateUi() {
         int[] jonot = new int[3];
         boolean[] varattu = new boolean[9];
@@ -267,46 +270,19 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     }
 
+    /**
+     * Lukujen pyöristukseen käytettävä funktio
+     * @param luku Pöyristettävä luku
+     * @param tarkkuus Kuinka monta decimaalia pyöristetyssä luvussa on
+     * @return Pyöristetty luku
+     */
     public static double round(double luku, double tarkkuus) {
         return Math.round(luku * tarkkuus) / tarkkuus;
     }
 
-    public void setTiskiA(boolean cbA_a, double txtA_ap, double txtA_ah, boolean cbA_b, double txtA_bp, double txtA_bh, boolean cbA_c, double txtA_cp ,double txtA_ch){
-        this.cbA_a = cbA_a;
-        this.txtA_ap = txtA_ap;
-        this.txtA_ah = txtA_ah;
-        this.cbA_b = cbA_b;
-        this.txtA_bp = txtA_bp;
-        this.txtA_bh = txtA_bh;
-        this.cbA_c = cbA_c;
-        this.txtA_cp = txtA_cp;
-        this.txtA_ch = txtA_ch;
-    }
-
-    public void setTiskiB(boolean cbB_a, double txtB_ap, double txtB_ah, boolean cbB_b, double txtB_bp, double txtB_bh, boolean cbB_c, double txtB_cp ,double txtB_ch){
-        this.cbB_a = cbB_a;
-        this.txtB_ap = txtB_ap;
-        this.txtB_ah = txtB_ah;
-        this.cbB_b = cbB_b;
-        this.txtB_bp = txtB_bp;
-        this.txtB_bh = txtB_bh;
-        this.cbB_c = cbB_c;
-        this.txtB_cp = txtB_cp;
-        this.txtB_ch = txtB_ch;
-    }
-
-    public void setTiskiC(boolean cbC_a, double txtC_ap, double txtC_ah, boolean cbC_b, double txtC_bp, double txtC_bh, boolean cbC_c, double txtC_cp ,double txtC_ch){
-        this.cbC_a = cbC_a;
-        this.txtC_ap = txtC_ap;
-        this.txtC_ah = txtC_ah;
-        this.cbC_b = cbC_b;
-        this.txtC_bp = txtC_bp;
-        this.txtC_bh = txtC_bh;
-        this.cbC_c = cbC_c;
-        this.txtC_cp = txtC_cp;
-        this.txtC_ch = txtC_ch;
-    }
-
+    /**
+     * Simulaation läpikäymisen pysättäminen ja jatkaminen
+     */
     public void setPause(){
         if(!pause){
             pause = true;
@@ -319,6 +295,9 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
     }
 
 
+    /**
+     * Simulaation tulosten tallentaminen tietokantaan.
+     */
     public void tallenaDatabaseen(){
         loppuAika = round(kello.getAika(),100);
         asiakkaidenMäärä = Asiakas.getMäärä();
@@ -340,30 +319,61 @@ public class OmaMoottori extends Moottori implements IOmaMoottori{
 
     }
 
+    /**
+     * Vaihtaa halutun palvelpisteen tilaa
+     * @param i Palvelupisteen indeksi
+     * @param aktiivinen Palvelupisteen nykyinen tila
+     */
     public void setTiskiAktiivinen(int i, boolean aktiivinen){
         palvelupisteet[i].vaihdaAktiivinen(aktiivinen);
     }
 
+    /**
+     *
+     * @return palauttaa
+     */
     public boolean getPause(){return pause;}
 
 
+    /**
+     * palvelupisteiden aktiivisuuden asettaminen
+     * @param checkbox taulukko joka sisältää palvelupisteiden aktiivisuuden tilan
+     */
     public void setCheckbox(boolean[] checkbox) {
         this.checkboxes = checkbox;
     }
 
+    /**
+     * palvelupisteiden palveluaikojen asettaminen
+     * @param palveluajat taulukko joka sisältää palvelupisteiden palveluajat
+     */
     public void setPalveluajat(double[] palveluajat) {
         this.palveluajat = palveluajat;
     }
 
+    /**
+     * * Palvelupisteiden palveluaikojen hajonnan asettaminen
+     * @param hajonnat Taulukko joka sisältää palvelupisteiden palveluaikojen hajonnat
+     */
     public void setHajonnat(double[] hajonnat) {
         this.hajonnat = hajonnat;
     }
 
+    /**
+     * Tiskien välisen jakuman muuttujien asettaminen
+     * @param hajontaA Tiskille A menevien asiakkaiden osuus prosenteina
+     * @param hajontaB Tiskille B menevien asiakkaiden osuus prosenteina
+     */
     public void setJakaumat(double hajontaA, double hajontaB){
         this.hajontaA = hajontaA;
         this.hajontaB = hajontaB;
     }
 
+    /**
+     * Asiakaiden saapmustiheyden asettaaminen
+     * @param saapumisväliaika sappumisväliaikojen keskiarvo
+     * @param saapumishajonta saapumiväliaikojen hajonta
+     */
     public void setSaapumistiheys(long saapumisväliaika, long saapumishajonta){
         this.saapumisväliaika = saapumisväliaika;
         this.saapumishajonta = saapumishajonta;

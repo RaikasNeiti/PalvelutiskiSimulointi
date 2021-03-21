@@ -3,7 +3,7 @@ import eduni.distributions.*;
 import simu.model.TapahtumanTyyppi;
 public class Saapumisprosessi {
 
-    //testi3
+
 
     private ContinuousGenerator generaattori;
     private Tapahtumalista tapahtumalista;
